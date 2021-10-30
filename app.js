@@ -83,13 +83,9 @@ function getDom(step) {
     } else if (step.responseType === 'table') {
         const headers = step.headers;
         const rows = step.rows;
-        const table = AsciiTable.factory({
-            title: '',
-            heading: headers,
-            rows: rows
-        });
-        const lines = table.toString().split("\n");
-        html = lines.map(l => `${l.replace(/ /g, '\u00a0')}<br/>`).join('');
+        const thsHtml = headers.map(h => `<th>${h}</th>`).join('')
+        const tdsHtml = rows.map(r => `<tr>${r.map(rtd => `<td>${rtd}</td>`).join('')}</tr>`).join('');
+        html = `<table><thead><tr>${thsHtml}</tr></thead><tbody>${tdsHtml}</tbody></table>`;
     }
     return stringToDom(` <div id="terminal-line${step.id}" class="terminal__line" style="display: none;">
             <span id="line${step.id}" class="line"></span>

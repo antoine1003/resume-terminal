@@ -1,0 +1,114 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #8A2387;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F27121, #E94057, #8A2387);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+ul {
+  margin: 0;
+}
+
+.terminal {
+  font-family: "Ubuntu Mono", monospace;
+  max-width: 800px;
+  min-width: 60vw;
+  max-height: 80vh;
+  min-height: 300px;
+  background: rgba(56, 4, 40, 0.9);
+  color: white;
+  padding: 8px;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+.terminal .line {
+  margin-bottom: 8px;
+}
+.terminal .line::before {
+  content: "Antoine DAUTRY ~$ ";
+  color: cadetblue;
+}
+.terminal .response {
+  display: none;
+  margin: 8px 0 16px 0;
+}
+.terminal .response table {
+  border: 1px dashed;
+  padding: 4px;
+  width: 100%;
+}
+.terminal .response table thead th {
+  font-weight: normal;
+  color: cadetblue;
+  border-bottom: 1px solid white;
+  padding-bottom: 4px;
+}
+.terminal .response table tbody td {
+  padding: 4px 0;
+}
+
+.socials {
+  position: absolute;
+  display: flex;
+  bottom: 32px;
+  gap: 16px;
+}
+.socials a {
+  border-radius: 50%;
+  background: #EC6F66;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F3A183, #EC6F66);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F3A183, #EC6F66);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 4em;
+  height: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.socials a:hover {
+  background: #EC6F66;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #F3A183, #EC6F66);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #F3A183, #EC6F66);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.socials a i {
+  color: white;
+  font-size: 2em;
+}
+
+@media (max-width: 640px) {
+  body {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 8px;
+  }
+
+  .terminal {
+    max-width: unset;
+    width: 90vw;
+    font-size: 14px;
+  }
+
+  .socials {
+    font-size: 13px;
+    position: relative;
+    bottom: unset;
+  }
+}
+
+/*# sourceMappingURL=/style.6980275b.css.map */

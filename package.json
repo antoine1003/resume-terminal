@@ -4,19 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html -o dist/index.html"
+    "dev": "parcel index.html -o dist/index.html",
+    "build": "parcel build index.html --no-minify"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ascii-table": "0.0.9",
+    "postcss": "^8.3.11",
     "typewriter-effect": "^2.18.2"
   },
   "browserslist": [
     "defaults"
   ],
   "devDependencies": {
+    "cssnano": "^5.0.8",
     "sass": "^1.43.4"
   }
 }
