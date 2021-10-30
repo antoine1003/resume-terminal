@@ -1,0 +1,35 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #8A2387;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+ul {
+  margin: 0;
+}
+.terminal {
+  font-family: 'Ubuntu Mono', monospace;
+  width: clamp(600px, 60vw, 900px);
+  height: clamp(300px, 60vh, 500px);
+  background: rgba(56, 4, 40, .9);
+  color: white;
+  padding: 8px;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  .line {
+    margin-bottom: 8px;
+    &::before {
+      content: 'Antoine DAUTRY ~$ ';
+      color: cadetblue;
+    }
+  }
+  .response {
+    display: none;
+    margin: 8px 0 16px 0;
+  }
+}

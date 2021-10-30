@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "line": "whois adautry",
+    "responseType": "list",
+    "value": ["A 27 years old full stack developper", "3 years of experiences", "Living in Nantes"]
+  },{
+  "id": 2,
+  "line": "whereis projects",
+  "responseType": "text",
+  "value": "Populate the table from json object, should match the toJSON output above."
+},{
+  "id": 3,
+  "line": "whereis projects",
+  "responseType": "table",
+  "headers": ["Date", "Client", "Description", "Tech"],
+  "rows": [
+    ["2021","La Poste", "Internal tool to schedule techniciens on interventions.", "Angular 11, Spring Boot/Batch, Genetic algorithm"]
+  ]
+},{
+  "id": 4,
+  "line": "whereis projects",
+  "responseType": "table",
+  "headers": ["Date", "Client", "Description", "Tech"],
+  "rows": [
+    ["2021","La Poste", "Bibou", "JS, Angular, Java Spring"]
+  ]
+},
+]
