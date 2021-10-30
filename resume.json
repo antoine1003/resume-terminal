@@ -32,8 +32,7 @@
         "Symfony, Angular 8"
       ]
     ]
-  },
-  {
+  }, {
     "id": 4,
     "line": "find . -type f -print | xargs grep \"hobby\"",
     "responseType": "list",

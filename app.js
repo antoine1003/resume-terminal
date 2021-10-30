@@ -25,8 +25,6 @@ import stepsJson from './resume.json';
  */
 import config from './config.json';
 
-import * as AsciiTable from 'ascii-table';
-
 const typewriterConfig = {
 
 }

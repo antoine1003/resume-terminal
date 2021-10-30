@@ -14,10 +14,8 @@ ul {
 }
 .terminal {
   font-family: 'Ubuntu Mono', monospace;
-  max-width: 800px;
-  min-width: 60vw;
-  max-height: 80vh;
-  min-height: 300px;
+  width: min(800px, 90vw);
+  height: min(400px, 90vh);
   background: rgba(56, 4, 40, .9);
   color: white;
   padding: 8px;
@@ -82,13 +80,17 @@ ul {
     }
   }
 }
+#banner-github {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 @media (max-width: 640px) {
   body {
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 8px;
   }
   .terminal {
     max-width: unset;
@@ -99,5 +101,11 @@ ul {
     font-size: 13px;
     position: relative;
     bottom: unset;
+  }
+  #banner-github {
+    img {
+      width: 100px;
+      height: 100px;
+    }
   }
 }
