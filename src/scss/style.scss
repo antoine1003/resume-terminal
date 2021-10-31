@@ -182,6 +182,15 @@ ul {
   right: 0;
 }
 
+#version {
+  position: absolute;
+  top: 60px;
+  transform: rotate(45deg);
+  right: 60px;
+  color: white;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
 @media (max-width: 640px) {
   body {
     align-items: center;
@@ -204,5 +213,10 @@ ul {
       width: 100px;
       height: 100px;
     }
+  }
+  #version {
+    top: 38px;
+    right: 38px;
+    font-size: 13px;
   }
 }

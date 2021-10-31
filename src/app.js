@@ -25,6 +25,11 @@ import stepsJson from "./resources/resume.json";
  */
 import config from "./resources/config.json";
 
+const versionEl = document.getElementById('version');
+if (versionEl) {
+    versionEl.innerText = 'v1.0.2';
+}
+
 const typewriterConfig = {};
 
 // Builduing DOM for all elements
