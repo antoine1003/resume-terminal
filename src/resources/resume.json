@@ -5,15 +5,15 @@
     "responseType": "code",
     "value": [
       "{",
-      "   \"name\":\"Antoine DAUTRY\",",
-      "   \"job\":\"Fullstack developper\",",
-      "   \"experience\":\"3 years\",",
-      "   \"city\":\"Nantes\"",
+      "   \"name\" : \"Antoine DAUTRY\",",
+      "   \"job\" : \"Fullstack developper\",",
+      "   \"experience\" : \"3 years\",",
+      "   \"location\" : \"Nantes, France\"",
       "}"
     ]
   }, {
     "id": 2,
-    "line": "whereis experiences",
+    "line": "tail experiences.html",
     "responseType": "table",
     "headers": [
       "Date",
@@ -23,16 +23,21 @@
     ],
     "rows": [
       [
-        "03-2021<br/>now",
-        "La Poste",
+        "03/2021<br/>Now",
+        "SII<br/><em>La Poste</em>",
         "Internal tool to schedule techniciens on interventions.<br/>Dashboard with BI data on technician productivity.",
-        "Angular 11<br/>Spring Boot/Batch<br/>Genetic algorithm"
+        "Angular 11<br/>Spring Boot<br/>Spring Batch"
       ],
       [
-        "09-2020<br/>03-2021",
-        "DSI",
+        "02/2020<br/>03/2021",
+        "SII<br/><em>I.T. Dept</em>",
         "Maintenance of a timesheet internal tool.<br/>Development of plugins for our ProjeQtor instance.<br/>Converting old webapp to Angular 9.",
         "Symfony<br/>Angular 9"
+      ],[
+        "11/2019<br/>02/2020",
+        "SII<br/><em>Poste IMMO</em>",
+        "Work on a process management tool to manage the evolution of a work request.",
+        "Symfony 3.4<br/>AngularJS<br/>Processmaker"
       ]
     ]
 },
