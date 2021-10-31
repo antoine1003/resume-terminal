@@ -1,0 +1,208 @@
+$border-radius: 5px;
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #8a2387; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+                  to right,
+                  #f27121,
+                  #e94057,
+                  #8a2387
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+                  to right,
+                  #f27121,
+                  #e94057,
+                  #8a2387
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+ul {
+  margin: 0;
+}
+
+.terminal {
+  .terminal__header {
+    width: min(900px, 90vw);
+    height: 25px;
+    padding: 0 8px;
+    background-color: #bbb;
+    margin: 0 auto;
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+
+    .fake-button {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      position: relative;
+      top: 6px;
+      left: 6px;
+      display: inline-block;
+    }
+
+    .fake-close {
+      left: 6px;
+      background-color: #ff3b47;
+      border-color: #9d252b;
+    }
+
+    .fake-minimize {
+      left: 11px;
+      background-color: #ffc100;
+      border-color: #9d802c;
+    }
+
+    .fake-zoom {
+      left: 16px;
+      background-color: #00d742;
+      border-color: #049931;
+    }
+  }
+
+  .terminal__body {
+    font-family: "Ubuntu Mono", monospace;
+    width: min(900px, 90vw);
+    height: min(500px, 90vh);
+    background: rgba(56, 4, 40, 0.9);
+    color: white;
+    padding: 8px;
+    overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    .line {
+      margin-bottom: 8px;
+
+      &::before {
+        content: "Antoine DAUTRY ~$ ";
+        color: cadetblue;
+      }
+    }
+
+    .response {
+      display: none;
+      margin: 8px 0 16px 0;
+
+      table {
+        border: 1px dashed;
+        padding: 4px;
+        width: 100%;
+
+        a {
+          text-decoration: none;
+          color: darkorange;
+        }
+
+        thead {
+          th {
+            font-weight: normal;
+            color: cadetblue;
+            border-bottom: 1px solid white;
+            padding-bottom: 4px;
+          }
+        }
+
+        tbody {
+          td {
+            padding: 4px 0;
+          }
+
+          tr:not(:last-child) {
+            td {
+              border-bottom: 1px solid white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.socials {
+  position: absolute;
+  display: flex;
+  bottom: 32px;
+  gap: 16px;
+
+  a {
+    &:hover {
+      background: #ec6f66; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+                      to top,
+                      #f3a183,
+                      #ec6f66
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+                      to top,
+                      #f3a183,
+                      #ec6f66
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    border-radius: 50%;
+    background: #ec6f66; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+                    to right,
+                    #f3a183,
+                    #ec6f66
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+                    to right,
+                    #f3a183,
+                    #ec6f66
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 4em;
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    i {
+      color: white;
+      font-size: 2em;
+    }
+  }
+}
+
+#banner-github {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (max-width: 640px) {
+  body {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .terminal .terminal__body {
+    max-width: unset;
+    width: 90vw;
+    font-size: 14px;
+  }
+  .socials {
+    font-size: 13px;
+    position: relative;
+    bottom: unset;
+  }
+  #banner-github {
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

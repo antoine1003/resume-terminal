@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html -o dist/index.html",
-    "build": "parcel build index.html --no-minify"
+    "dev": "parcel src/index.html -o dist/index.html",
+    "build": "parcel build src/index.html --no-minify"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   ],
   "devDependencies": {
     "cssnano": "^5.0.8",
+    "prettier": "2.4.1",
     "sass": "^1.43.4"
   }
 }

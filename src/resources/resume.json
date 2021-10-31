@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "line": "curl https://adautry.fr/user/03101994",
+    "responseType": "code",
+    "value": [
+      "{",
+      "   \"name\":\"Antoine DAUTRY\",",
+      "   \"job\":\"Fullstack developper\",",
+      "   \"experience\":\"3 years\",",
+      "   \"city\":\"Nantes\"",
+      "}"
+    ]
+  }, {
+    "id": 2,
+    "line": "whereis experiences",
+    "responseType": "table",
+    "headers": [
+      "Date",
+      "Client",
+      "Description",
+      "Tech"
+    ],
+    "rows": [
+      [
+        "03-2021<br/>now",
+        "La Poste",
+        "Internal tool to schedule techniciens on interventions.<br/>Dashboard with BI data on technician productivity.",
+        "Angular 11<br/>Spring Boot/Batch<br/>Genetic algorithm"
+      ],
+      [
+        "09-2020<br/>03-2021",
+        "DSI",
+        "Maintenance of a timesheet internal tool.<br/>Development of plugins for our ProjeQtor instance.<br/>Converting old webapp to Angular 9.",
+        "Symfony<br/>Angular 9"
+      ]
+    ]
+},
+  {
+    "id": 4,
+    "line": "find . -type f -print | xargs grep \"hobby\"",
+    "responseType": "list",
+    "value": [
+      "Music: Piano, Guitar",
+      "Programming: JS, Angular, PHP",
+      "Other: Cinema, Aeronautic"
+    ]
+  },
+  {
+    "id": 5,
+    "line": "cat ../perso/projects.txt",
+    "responseType": "table",
+    "headers": [
+      "Name",
+      "Description",
+      "Tech",
+      "Link"
+    ],
+    "rows": [
+      [
+        "Chartsfinder - Web<br/>(2021)",
+        "Web app to quickly find aeronautical charts.<br/>I decided to make a web version as it's more practical to use.",
+        "Angular 11, PHP 7.4",
+        "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Link to project</a>"
+      ],
+      [
+        "Personal website<br/>(2021)",
+        "Personal website allowing me to show my projects and deploy a new software version.",
+        "Symfony 4",
+        "<a href=\"https://adautry.fr\" target=\"blank\">Link to project</a>"
+      ],
+      [
+        "Chartsfinder - Software<br/>(2020)",
+        "Software to quickly find aeronautical charts.",
+        "C# WPF",
+        "<a href=\"https://adautry.fr/software/chartsfinder\" target=\"blank\">Link to project</a>"
+      ]
+    ]
+  }
+]
+

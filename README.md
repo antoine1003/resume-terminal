@@ -1,23 +1,23 @@
-# CV Terminal
+# Resume Terminal
 
-## Lancer le projet
+## Run the project
 
-- Pour lancer le projet en dev : `npm run dev`
-- Pour build le projet en prod : `npm run build`
+- To run in dev mode : `npm run dev`
+- To build for production : `npm run build`
 
 ## Usage
 
 ### resume.json
 
-Le fichier `resume.json` contient l'ensemble des étapes à afficher.
+File `resume.json` contain all steps.
 
-> /!\ Tous les objets doivent avoir un champs `id` unique !
+> /!\ All objects needs to have a unique `id` !
 
-Il y a trois structures d'objets possibles :
+For now, there are 3 possible steps :
 
 #### responseType = list
 
-Le terminal affichera une liste de champs contenus dans `value`
+To display a bullet list, the `value` field is an array of string.
 
 ```json
 {
@@ -33,9 +33,12 @@ Le terminal affichera une liste de champs contenus dans `value`
 ```
 
 #### responseType = table
-Affichera un tableau, ce type l'objet doit contenir: 
-- `headers`: Ensemble des entêtes du tableau
-- `rows`: Un tableau contenant les lignes du tableau
+
+Display a table, this object requires two fields :
+
+- `headers`: Headers of the array
+- `rows`: Array containing rows
+
 ```json
 {
   "id": 2,
@@ -65,12 +68,34 @@ Affichera un tableau, ce type l'objet doit contenir:
 ```
 
 #### responseType = text
-Affiche simplement du texte contenue dans le champs `value`.
+
+Just display text contained in `value`.
+
 ```json
 {
     "id": 4,
     "line": "find . -type f -print | xargs grep \"hobby\"",
     "responseType": "text",
     "value": "Bonsoir"
+}
+```
+
+#### responseType = code
+
+Display code between `pre` tag, `value` is an array of string, each string is a line.
+
+```json
+{
+    "id": 1,
+    "line": "curl https://adautry.fr/user/03101994",
+    "responseType": "code",
+    "value": [
+      "{",
+      "   \"name\":\"Antoine DAUTRY\",",
+      "   \"job\":\"Fullstack developper\",",
+      "   \"experience\":\"3 years\",",
+      "   \"city\":\"Nantes\"",
+      "}"
+    ]
 }
 ```
