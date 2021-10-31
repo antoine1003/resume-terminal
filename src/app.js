@@ -42,15 +42,13 @@ if (stepsJson.length > 0) {
  * @param {number} stepIndex Index of the step in the array stepsJson
  */
 function play(stepIndex) {
-    const step                                                       = stepsJson[stepIndex];
+    const step = stepsJson[stepIndex];
     document.getElementById(`terminal-line${step.id}`).style.display = "block";
-    const betweenStepDelay                                           = stepIndex === 0 ? 10 : config.delayBetweenSteps ?? 5000;
+    const betweenStepDelay = stepIndex === 0 ? 10 : config.delayBetweenSteps ?? 5000;
     new Typewriter(`#line${step.id}`, typewriterConfig)
-        .changeDelay(betweenStepDelay)
-        .typeString("")
-        .changeDelay("natural")
+        .pauseFor(betweenStepDelay)
         .typeString(step.line)
-        .changeDelay(config.enterDelay ?? 2000)
+        .pauseFor(config.enterDelay ?? 2000)
         .callFunction(() => {
             // Hide cursor and show response
             document.querySelector(`#line${step.id} > .Typewriter__cursor`).style.display = "none";

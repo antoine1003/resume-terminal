@@ -13,7 +13,11 @@ File `resume.json` contain all steps.
 
 > /!\ All objects needs to have a unique `id` !
 
-For now, there are 3 possible steps :
+For now, there are 4 possible type of steps :
+- list
+- text
+- code
+- table
 
 #### responseType = list
 
