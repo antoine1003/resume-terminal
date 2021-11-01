@@ -1,11 +1,10 @@
 {
   "name": "cv-terminal",
   "version": "1.0.2",
-  "description": "",
-  "main": "index.js",
+  "description": "Nice looking resume.",
   "scripts": {
-    "dev": "parcel src/index.html -o dist/index.html",
-    "build": "parcel build src/index.html --no-minify"
+    "dev": "npx parcel src/index.html",
+    "build": "npx parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +17,11 @@
     "defaults"
   ],
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.0.0",
+    "@parcel/transformer-sass": "^2.0.0",
+    "@parcel/transformer-webmanifest": "^2.0.0",
     "cssnano": "^5.0.8",
+    "parcel": "^2.0.0",
     "prettier": "2.4.1",
     "sass": "^1.43.4"
   }
