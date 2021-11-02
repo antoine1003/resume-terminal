@@ -4,8 +4,9 @@ body {
   box-sizing: border-box;
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
   background: #8a2387; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -69,11 +70,11 @@ ul {
   .terminal__body {
     font-family: "Ubuntu Mono", monospace;
     width: min(900px, 90vw);
-    height: min(500px, 90vh);
+    height: min(400px, 90vh);
     background: rgba(56, 4, 40, 0.9);
     color: white;
     padding: 8px;
-    overflow: auto;
+    overflow-y: scroll;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -82,7 +83,6 @@ ul {
 
     .line {
       margin-bottom: 8px;
-
       &::before {
         content: "Antoine DAUTRY ~$ ";
         color: cadetblue;
@@ -129,9 +129,7 @@ ul {
 }
 
 .socials {
-  position: absolute;
   display: flex;
-  bottom: 32px;
   gap: 16px;
 
   a {
@@ -201,7 +199,7 @@ ul {
   .terminal .terminal__body {
     max-width: unset;
     width: 90vw;
-    font-size: 14px;
+    height: 70vh;
   }
   .socials {
     font-size: 13px;
@@ -220,3 +218,5 @@ ul {
     font-size: 13px;
   }
 }
+
+@import "snowflakes";

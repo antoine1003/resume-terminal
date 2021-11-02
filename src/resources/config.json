@@ -1,4 +1,5 @@
 {
   "delayBetweenSteps": 1500,
-  "enterDelay": 2000
+  "enterDelay": 2000,
+  "easterEggs" : true
 }

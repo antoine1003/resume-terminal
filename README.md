@@ -7,6 +7,16 @@
 
 ## Usage
 
+### config.json
+
+```js
+{
+  "delayBetweenSteps": 1500, //  Delay between each step
+  "enterDelay": 2000, // Delay before seeing the "response" of a command line
+  "easterEggs" : true // Enable or disable easter eggs (Christmas, Halloween (WIP) )
+}
+```
+
 ### resume.json
 
 File `resume.json` contain all steps.

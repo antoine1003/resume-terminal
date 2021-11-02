@@ -11,7 +11,8 @@
       "   \"location\" : \"Nantes, France\"",
       "}"
     ]
-  }, {
+  },
+  {
     "id": 2,
     "line": "tail experiences.html",
     "responseType": "table",
@@ -33,16 +34,17 @@
         "SII<br/><em>I.T. Dept</em>",
         "Maintenance of a timesheet internal tool.<br/>Development of plugins for our ProjeQtor instance.<br/>Converting old webapp to Angular 9.",
         "Symfony<br/>Angular 9"
-      ],[
+      ],
+      [
         "11/2019<br/>02/2020",
         "SII<br/><em>Poste IMMO</em>",
         "Work on a process management tool to manage the evolution of a work request.",
         "Symfony 3.4<br/>AngularJS<br/>Processmaker"
       ]
     ]
-},
+  },
   {
-    "id": 4,
+    "id": 3,
     "line": "find . -type f -print | xargs grep \"hobby\"",
     "responseType": "list",
     "value": [
@@ -52,7 +54,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 4,
     "line": "cat ../perso/projects.txt",
     "responseType": "table",
     "headers": [
