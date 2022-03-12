@@ -80,17 +80,38 @@ ul {
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
+    code {
+      color: darksalmon;
+      font-size: 14px;
+    }
+    .terminal__banner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: lightgray;
+      .terminal__author {
+        text-align: right;
+      }
+    }
 
-    .line {
+    .terminal__line {
       margin-bottom: 8px;
       &::before {
         content: "Antoine DAUTRY ~$ ";
         color: cadetblue;
       }
+      input[type="text"] {
+        background: none;
+        border: none;
+        font-family: "Ubuntu Mono", monospace;
+        color: white;
+        outline: none;
+        font-size: 15px;
+        width: calc(100% - 150px);
+      }
     }
 
-    .response {
-      display: none;
+    .terminal__response {
       margin: 8px 0 16px 0;
 
       table {
@@ -189,6 +210,17 @@ ul {
   font-family: 'Ubuntu Mono', monospace;
 }
 
+
+@media (max-width: 880px) {
+  .terminal .terminal__body {
+    .terminal__banner {
+      pre {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
 @media (max-width: 640px) {
   body {
     align-items: center;
@@ -200,6 +232,11 @@ ul {
     max-width: unset;
     width: 90vw;
     height: 70vh;
+    .terminal__banner {
+      pre {
+        font-size: 5px;
+      }
+    }
   }
   .socials {
     font-size: 13px;

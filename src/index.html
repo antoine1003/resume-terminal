@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cv">
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
     <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
-    <meta content="Fullstack Developer - Resume" name="title"/>
-    <meta content="My resume in a fun way." name="description"/>
+    <meta content="Développeur Fullstack - CV" name="title"/>
+    <meta content="Mon CV sous la forme d'un terminal. Parce qu'il n'y a pas de raisons que seuls les développeurs utilisent un terminal ! :D" name="description"/>
     <meta content="resume,dautry,developer,fullstack,france" name="keywords"/>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-    <meta content="English" name="language"/>
+    <meta content="Français" name="language"/>
     <meta content="Antoine DAUTRY" name="author"/>
-    <meta content="index, nofollow" name="robots"/>
-    <title>Resume - Antoine DAUTRY</title>
+    <title>CV - Antoine DAUTRY</title>
     <script src="app.js" type="module" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,20 +25,27 @@
     <link href="site.webmanifest" rel="manifest">
 </head>
 <body>
-<span id="version"></span>
+<span id="version">2.0.0</span>
 <div class="terminal">
     <div class="terminal__header">
         <div class="fake-button fake-close"></div>
         <div class="fake-button fake-minimize"></div>
         <div class="fake-button fake-zoom"></div>
     </div>
-    <div class="terminal__body" id="terminal"></div>
+    <div class="terminal__body">
+        <div class="terminal__banner"><pre> ______     __   __      ______   ______     ______     __    __     __     __   __     ______     __
+/\  ___\   /\ \ / /     /\__  _\ /\  ___\   /\  == \   /\ "-./  \   /\ \   /\ "-.\ \   /\  __ \   /\ \
+\ \ \____  \ \ \'/      \/_/\ \/ \ \  __\   \ \  __<   \ \ \-./\ \  \ \ \  \ \ \-.  \  \ \  __ \  \ \ \____
+ \ \_____\  \ \__|         \ \_\  \ \_____\  \ \_\ \_\  \ \_\ \ \_\  \ \_\  \ \_\\"\_\  \ \_\ \_\  \ \_____\
+  \/_____/   \/_/           \/_/   \/_____/   \/_/ /_/   \/_/  \/_/   \/_/   \/_/ \/_/   \/_/\/_/   \/_____/</pre>
+            <div class="terminal__author">Antoine DAUTRY</div>
+            <p>Bienvenue sur mon CV ! Pour afficher les commandes disponibles tapez <code>help</code>. Pour valider chaque commande appuyez sur <em>Entrer</em>, vous pouvez utiliser la touche <em>Tabulation</em> afin de vous aider à compléter une commande.</p>
+        </div>
+        <div id="terminal"></div>
+    </div>
 </div>
 
 <div class="socials">
-    <a href="https://adautry.fr/contact/" target="_blank">
-        <i class="fas fa-envelope"></i>
-    </a>
     <a href="https://www.linkedin.com/in/antoine-dautry/" target="_blank">
         <i class="fab fa-linkedin"></i>
     </a>
