@@ -1,6 +1,6 @@
 {
   "name": "cv-terminal",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Nice looking resume.",
   "scripts": {
     "dev": "npx parcel src/index.html",

@@ -3,13 +3,14 @@
       "command":"help",
       "responseType":"list",
       "value":[
-        "<code>help</code> : Affiche la liste des commandes",
+        "<code>help</code> : Affiche l'aide",
         "<code>a-propos</code> : Affiche les informations me concernant",
         "<code>experiences</code> : Affiche la liste de mes expériences",
         "<code>projets-perso</code> : Affiche la liste de mes projets personnels",
         "<code>hobby</code> : Affiche la liste de mes passes temps",
         "<code>clear</code> : Nettoie le terminal",
-        "<em>Vous pouvez utiliser la touche TAB afin de compléter une commande</em>"
+        "<em>Vous pouvez utiliser la touche TAB afin de compléter une commande</em>",
+        "<em>Vous pouvez retrouver les anciennes commandes avec les flèches haut et bas.</em>"
       ]
     },
     {
@@ -66,22 +67,22 @@
       "value":[
         "Musique: Piano, Guitare",
         "Programmation: JS, Angular, PHP",
-        "Autre: Cinéma, Aeronautique, Photographie"
+        "Autre: Cinéma, Aéronautique, Photographie"
       ]
     },
     {
       "command":"projets-perso",
       "responseType":"table",
       "headers":[
-        "Name",
+        "Nom",
         "Description",
         "Tech",
-        "Link"
+        "Liens"
       ],
       "rows":[
         [
           "Chartsfinder - Web<br/>(2021)",
-          "Application web pour trouver rapidement des cartes aéronautiques. Une version C# existait<br/>déjà mais j'ai préféré la mettre à jour avec une version web<br/> qui est plus simple d'utilisation.",
+          "Application web pour trouver rapidement des cartes aéronautiques. Une version C# existait déjà mais j'ai préféré la mettre à jour avec une version web qui est plus simple d'utilisation.",
           "Angular 11, PHP 7.4",
           "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Lien</a>"
         ],

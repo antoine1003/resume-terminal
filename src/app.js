@@ -20,15 +20,14 @@ commands.forEach(c => {
 })
 commandsList.push('clear');
 
+// Tableau contenant l'historique des commandes
+const commandsHistory = [];
+let historyMode = false;
+let historyIndex = -1;
 const terminalBody = document.querySelector('.terminal__body');
 
 // Ajout de la ligne par défaut
 addNewLine();
-
-const versionEl = document.getElementById('version');
-if (versionEl) {
-    versionEl.innerText = 'v2.0.0';
-}
 
 // Easter egg de décembre
 const now = new Date();
@@ -105,34 +104,54 @@ function addNewLine(previousUid = null) {
     document.getElementById('terminal').appendChild(terminalLineEl);
     document.getElementById('terminal').appendChild(terminalResponseEl);
 
-    inputEl.focus();
+    inputEl.focus(); // Ajoute le focus dès la création du champs
 }
 
 function onCommandInput(e) {
     const commandValue = e.target.value.trim();
     if (e.keyCode === 13) { // ENTER
         if (commandValue !== '') {
+            historyMode = false;
             if (commandValue === 'clear') {
                 terminalBody.innerHTML = `<div id="terminal"></div>`;
                 addNewLine();
                 return;
             }
             const idResponse = `response-${e.target.dataset.uid}`;
-            const domResponse = getDomForCommand(commandValue);
+            const html = getDomForCommand(commandValue);
             const responseEl = document.getElementById(idResponse);
             if (responseEl) {
-                console.log(responseEl);
-                responseEl.innerHTML  = domResponse;
-                console.log(responseEl)
+                responseEl.innerHTML  = html;
+                commandsHistory.push(commandValue);
                 addNewLine(e.target.id);
             }
         }
     } else if(e.keyCode === 9) { // TAB
         e.preventDefault();
-        const matchingCommand = commandsList.find(c => c.startsWith(commandValue));
-        if (matchingCommand) {
-            this.value = matchingCommand;
+        if (commandValue === '') {
+            this.value = 'help';
+        } else {
+            const matchingCommand = commandsList.find(c => c.startsWith(commandValue));
+            if (matchingCommand) {
+                this.value = matchingCommand;
+            }
         }
+        historyMode = false;
+    } else if(e.keyCode === 38 || e.keyCode === 40) { // UP / DOWN
+        // Gestion de l'historique
+        if (commandsHistory.length > 0) {
+            if (historyMode === false) {
+                historyIndex = commandsHistory.length - 1;
+            } else {
+                if (e.keyCode === 38 && historyIndex !== 0) { // UP
+                    historyIndex--;
+                } else if(e.keyCode === 40 && historyIndex !== commandsHistory.length - 1) {
+                    historyIndex++;
+                }
+            }
+            this.value = commandsHistory[historyIndex];
+        }
+        historyMode = true;
     }
 }
 
