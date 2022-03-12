@@ -8,7 +8,8 @@
         "<code>experiences</code> : Affiche la liste de mes expériences",
         "<code>projets-perso</code> : Affiche la liste de mes projets personnels",
         "<code>hobby</code> : Affiche la liste de mes passes temps",
-        "<code>clear</code> : Nettoie le terminal"
+        "<code>clear</code> : Nettoie le terminal",
+        "<em>Vous pouvez utiliser la touche TAB afin de compléter une commande</em>"
       ]
     },
     {

@@ -13,7 +13,16 @@
  */
 import commands from "./resources/commands.json";
 
+// Tableau contenant les commandes (utile pour la complétion des commandes)
+let commandsList = [];
+commands.forEach(c => {
+    commandsList.push(c.command);
+})
+commandsList.push('clear');
+
 const terminalBody = document.querySelector('.terminal__body');
+
+// Ajout de la ligne par défaut
 addNewLine();
 
 const versionEl = document.getElementById('version');
@@ -21,8 +30,8 @@ if (versionEl) {
     versionEl.innerText = 'v2.0.0';
 }
 
+// Easter egg de décembre
 const now = new Date();
-// Is December
 if (now.getMonth() === 11) {
     // Christmas snow flakes
     let htmlFlakes = '';
@@ -34,7 +43,7 @@ if (now.getMonth() === 11) {
 }
 
 /**
- * Build DOM for a given command
+ * Retourne le HTML de la réponse pour une commande donnée
  * @param {string} command
  */
 function getDomForCommand(command) {
@@ -81,7 +90,7 @@ function addNewLine(previousUid = null) {
     inputEl.type = 'text';
     inputEl.id = `input-${uid}`;
     inputEl.dataset.uid = uid;
-    inputEl.dataset.active = "1";
+    inputEl.dataset.active = "1"; // Utile pour le focus
     inputEl.addEventListener('keydown', onCommandInput)
 
     terminalLineEl.appendChild(inputEl);
@@ -100,9 +109,8 @@ function addNewLine(previousUid = null) {
 }
 
 function onCommandInput(e) {
-    console.log(e.target.dataset.uid)
-    if (e.keyCode === 13) {
-        const commandValue = e.target.value.trim();
+    const commandValue = e.target.value.trim();
+    if (e.keyCode === 13) { // ENTER
         if (commandValue !== '') {
             if (commandValue === 'clear') {
                 terminalBody.innerHTML = `<div id="terminal"></div>`;
@@ -118,6 +126,12 @@ function onCommandInput(e) {
                 console.log(responseEl)
                 addNewLine(e.target.id);
             }
+        }
+    } else if(e.keyCode === 9) { // TAB
+        e.preventDefault();
+        const matchingCommand = commandsList.find(c => c.startsWith(commandValue));
+        if (matchingCommand) {
+            this.value = matchingCommand;
         }
     }
 }

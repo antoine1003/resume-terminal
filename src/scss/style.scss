@@ -89,6 +89,9 @@ ul {
       flex-direction: column;
       justify-content: center;
       color: lightgray;
+      .terminal__author {
+        text-align: right;
+      }
     }
 
     .terminal__line {
@@ -207,6 +210,17 @@ ul {
   font-family: 'Ubuntu Mono', monospace;
 }
 
+
+@media (max-width: 880px) {
+  .terminal .terminal__body {
+    .terminal__banner {
+      pre {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
 @media (max-width: 640px) {
   body {
     align-items: center;
@@ -218,6 +232,11 @@ ul {
     max-width: unset;
     width: 90vw;
     height: 70vh;
+    .terminal__banner {
+      pre {
+        font-size: 7px;
+      }
+    }
   }
   .socials {
     font-size: 13px;
