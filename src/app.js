@@ -1,139 +1,125 @@
-/**
- * @typedef Config
- * @property {number} delayBetweenSteps Time between each step
- * @property {number} enterDelay Delay of "execution" for a command line
- * @property {Boolean} easterEggs Enable or disable easter eggs (Christmas, Halloween (WIP) )
- */
 
 /**
- * @typedef Step
- * @property {number} id
- * @property {string} line
+ * @typedef Command
+ * @property {string} command
  * @property {string} responseType
  * @property {string?} value
  * @property {string[]?} headers
  * @property {string[]?} rows
  */
 
-import Typewriter from "typewriter-effect/dist/core";
-
 /**
- * @type Step[]
+ * @type {Command[]} commands
  */
-import stepsJson from "./resources/resume.json";
+import commands from "./resources/commands.json";
 
-/**
- * @type Config
- */
-import config from "./resources/config.json";
-
-const typewriterConfig = {};
+const terminalBody = document.querySelector('.terminal__body');
+addNewLine();
 
 const versionEl = document.getElementById('version');
 if (versionEl) {
-    versionEl.innerText = 'v1.0.3';
+    versionEl.innerText = 'v2.0.0';
 }
 
-if (config.easterEggs) {
-    const now = new Date();
-    // Is December
-    if (now.getMonth() === 11) {
-        // Christmas snow flakes
-        let htmlFlakes = '';
-        for (let i = 0; i < 6; i++) {
-            htmlFlakes += `<div class="snowflake">❅</div><div class="snowflake">❆</div>`;
-        }
-        const html = `<div class="snowflakes" aria-hidden="true">${htmlFlakes}</div>`;
-        document.body.append(stringToDom(html));
+const now = new Date();
+// Is December
+if (now.getMonth() === 11) {
+    // Christmas snow flakes
+    let htmlFlakes = '';
+    for (let i = 0; i < 6; i++) {
+        htmlFlakes += `<div class="snowflake">❅</div><div class="snowflake">❆</div>`;
     }
-}
-
-
-// Builduing DOM for all elements
-stepsJson.forEach((step) => {
-    document.getElementById("terminal").append(getDom(step));
-});
-
-// Starting terminal
-if (stepsJson.length > 0) {
-    play(0);
+    const html = `<div class="snowflakes" aria-hidden="true">${htmlFlakes}</div>`;
+    document.body.append(stringToDom(html));
 }
 
 /**
- * Start typewriter for given step
- * @param {number} stepIndex Index of the step in the array stepsJson
+ * Build DOM for a given command
+ * @param {string} command
  */
-function play(stepIndex) {
-    const step = stepsJson[stepIndex];
-    document.getElementById(`terminal-line${step.id}`).style.display = "block";
-    const betweenStepDelay = stepIndex === 0 ? 10 : config.delayBetweenSteps ?? 5000;
-    scrollToBottomOfTerminalBody();
-
-    new Typewriter(`#line${step.id}`, typewriterConfig)
-        .pauseFor(betweenStepDelay)
-        .typeString(step.line)
-        .pauseFor(config.enterDelay ?? 2000)
-        .callFunction(() => {
-            // Hide cursor and show response
-            document.querySelector(`#line${step.id} > .Typewriter__cursor`).style.display = "none";
-            document.getElementById(`line${step.id}-response`).style.display = "block";
-
-            if (hasNextStep(stepIndex)) {
-                // There is an other step
-                play(++stepIndex);
-            } else {
-                scrollToBottomOfTerminalBody();
-            }
-        })
-        .start();
-}
-
-/**
- * @param {number} index Index of item
- * @returns {boolean}
- */
-function hasNextStep(index) {
-    return  index  !== stepsJson.length - 1;
-}
-
-/**
- * Scroll to the bottom of the .terminal__body div.
- */
-function scrollToBottomOfTerminalBody() {
-    const terminalBodyEl = document.querySelector('.terminal__body');
-    terminalBodyEl.scrollTop = terminalBodyEl.scrollHeight;
-}
-
-/**
- * Build DOM for a given step
- * @param {Step} step
- */
-function getDom(step) {
+function getDomForCommand(command) {
+    const commandObj = commands.find(el => el.command === command);
     let html = "";
-
-    if (step.responseType === "list" && Array.isArray(step.value)) {
-        html = "<ul>";
-        html += step.value.map((s) => `<li>${s}</li>`).join("");
-        html += "</ul>";
-    } else if (step.responseType === "text") {
-        html = step.value;
-    } else if (step.responseType === "table") {
-        const headers = step.headers;
-        const rows    = step.rows;
-        const thsHtml = headers.map((h) => `<th>${h}</th>`).join("");
-        const tdsHtml = rows
-            .map((r) => `<tr>${r.map((rtd) => `<td>${rtd}</td>`).join("")}</tr>`)
-            .join("");
-        html          = `<table><thead><tr>${thsHtml}</tr></thead><tbody>${tdsHtml}</tbody></table>`;
-    } else if (step.responseType === "code") {
-        html = `<pre>${step.value.join('\n')}</pre>`;
+    if (commandObj === undefined) {
+        html = `'${command.split(' ')[0]}' n’est pas reconnu en tant que commande interne ou externe, un programme exécutable ou un fichier de commandes. Taper la commande <code>help</code> pour afficher la liste des commandes disponibles.`;
+    } else {
+        if (commandObj.responseType === "list" && Array.isArray(commandObj.value)) {
+            html = "<ul>";
+            html += commandObj.value.map((s) => `<li>${s}</li>`).join("");
+            html += "</ul>";
+        } else if (commandObj.responseType === "text") {
+            html = commandObj.value;
+        } else if (commandObj.responseType === "table") {
+            const headers = commandObj.headers;
+            const rows    = commandObj.rows;
+            const thsHtml = headers.map((h) => `<th>${h}</th>`).join("");
+            const tdsHtml = rows
+                .map((r) => `<tr>${r.map((rtd) => `<td>${rtd}</td>`).join("")}</tr>`)
+                .join("");
+            html          = `<table><thead><tr>${thsHtml}</tr></thead><tbody>${tdsHtml}</tbody></table>`;
+        } else if (commandObj.responseType === "code") {
+            html = `<pre>${commandObj.value.join('\n')}</pre>`;
+        }
     }
-    return stringToDom(` <div id="terminal-line${step.id}" class="terminal__line" style="display: none;">
-            <span id="line${step.id}" class="line"></span>
-            <div id="line${step.id}-response" class="response">
-                ${html}
-            </div>
-        </div>`);
+
+    return html;
+}
+
+function addNewLine(previousUid = null) {
+    const uid = Math.random().toString(36).replace('0.', '');
+    // terminal__line
+    const terminalLineEl = document.createElement('div');
+    terminalLineEl.classList.add('terminal__line');
+
+    // terminal__response
+    const terminalResponseEl = document.createElement('div');
+    terminalResponseEl.classList.add('terminal__response');
+    terminalResponseEl.id = `response-${uid}`;
+
+    // input text
+    const inputEl = document.createElement('input');
+    inputEl.type = 'text';
+    inputEl.id = `input-${uid}`;
+    inputEl.dataset.uid = uid;
+    inputEl.dataset.active = "1";
+    inputEl.addEventListener('keydown', onCommandInput)
+
+    terminalLineEl.appendChild(inputEl);
+    if (previousUid) {
+        const previousInputEl = document.getElementById(previousUid);
+        if (previousInputEl) {
+            previousInputEl.setAttribute('disabled', 'true');
+            previousInputEl.removeEventListener('keydown', onCommandInput);
+            delete previousInputEl.dataset.active;
+        }
+    }
+    document.getElementById('terminal').appendChild(terminalLineEl);
+    document.getElementById('terminal').appendChild(terminalResponseEl);
+
+    inputEl.focus();
+}
+
+function onCommandInput(e) {
+    console.log(e.target.dataset.uid)
+    if (e.keyCode === 13) {
+        const commandValue = e.target.value.trim();
+        if (commandValue !== '') {
+            if (commandValue === 'clear') {
+                terminalBody.innerHTML = `<div id="terminal"></div>`;
+                addNewLine();
+                return;
+            }
+            const idResponse = `response-${e.target.dataset.uid}`;
+            const domResponse = getDomForCommand(commandValue);
+            const responseEl = document.getElementById(idResponse);
+            if (responseEl) {
+                console.log(responseEl);
+                responseEl.innerHTML  = domResponse;
+                console.log(responseEl)
+                addNewLine(e.target.id);
+            }
+        }
+    }
 }
 
 /**
@@ -144,3 +130,11 @@ function getDom(step) {
 function stringToDom(html) {
     return document.createRange().createContextualFragment(html);
 }
+
+// Ajout du focus sur l'input même si on clique sur le body (pour garder le curseur)
+document.body.addEventListener('click', function (e) {
+    if (e.target.tagName !== 'INPUT') {
+        const activeInput = document.querySelector('input[data-active]');
+        activeInput.focus();
+    }
+});

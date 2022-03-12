@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "postcss": "^8.3.11",
-    "typewriter-effect": "^2.18.2"
+    "postcss": "^8.3.11"
   },
   "browserslist": [
     "defaults"
