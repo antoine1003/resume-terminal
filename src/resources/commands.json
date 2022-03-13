@@ -3,12 +3,13 @@
       "command":"help",
       "responseType":"list",
       "value":[
-        "<code>help</code> : Affiche l'aide",
         "<code>a-propos</code> : Affiche les informations me concernant",
-        "<code>experiences</code> : Affiche la liste de mes expériences",
-        "<code>projets-perso</code> : Affiche la liste de mes projets personnels",
-        "<code>hobby</code> : Affiche la liste de mes passes temps",
         "<code>clear</code> : Nettoie le terminal",
+        "<code>experiences</code> : Affiche la liste de mes expériences",
+        "<code>get cv</code> : Télécharge le CV",
+        "<code>help</code> : Affiche l'aide",
+        "<code>hobby</code> : Affiche la liste de mes passes temps",
+        "<code>projets-perso</code> : Affiche la liste de mes projets personnels",
         "<em>Vous pouvez utiliser la touche TAB afin de compléter une commande</em>",
         "<em>Vous pouvez retrouver les anciennes commandes avec les flèches haut et bas.</em>"
       ]
@@ -36,7 +37,7 @@
       ],
       "rows":[
         [
-          "11/2021<br/>Now",
+          "11/2021<br/>Ajd",
           "Elephant Tech<br/><em>Ministère de la justice</em>",
           "Mise en place d'une plateforme mettant en relation les<br/>différents acteurs de la réinsertion des anciens détenus.",
           "Angular 11<br/>Spring Boot<br/>Axelor"
