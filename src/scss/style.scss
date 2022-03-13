@@ -247,16 +247,6 @@ ul {
   right: 0;
 }
 
-#version {
-  position: absolute;
-  top: 60px;
-  transform: rotate(45deg);
-  right: 60px;
-  color: white;
-  font-family: 'Ubuntu Mono', monospace;
-}
-
-
 @media (max-width: 880px) {
   .terminal .terminal__body {
     .terminal__banner {
@@ -277,6 +267,7 @@ ul {
   .terminal {
     position: unset;
     width: unset;
+    height: unset;
     resize: none;
     .terminal__body {
       max-width: unset;
