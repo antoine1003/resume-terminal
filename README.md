@@ -1,5 +1,9 @@
 # Resume Terminal
 
+## About
+
+This projet use [ParcelJS](https://parceljs.org/) as build tool. It is made from scratch, the only library used is for an hidden command `paf` [canvas-confetti](https://github.com/catdad/canvas-confetti).
+
 ## Run the project
 
 - To run in dev mode : `npm run dev`
@@ -7,21 +11,9 @@
 
 ## Usage
 
-### config.json
+### commands.json
 
-```js
-{
-  "delayBetweenSteps": 1500, //  Delay between each step
-  "enterDelay": 2000, // Delay before seeing the "response" of a command line
-  "easterEggs" : true // Enable or disable easter eggs (Christmas, Halloween (WIP) )
-}
-```
-
-### resume.json
-
-File `resume.json` contain all steps.
-
-> /!\ All objects needs to have a unique `id` !
+File `commands.json` contain all commands that just needs to display simple data and doesn't need a JS actions.
 
 For now, there are 4 possible type of steps :
 - list
@@ -35,8 +27,7 @@ To display a bullet list, the `value` field is an array of string.
 
 ```json
 {
-  "id": 1,
-  "line": "whois adautry",
+  "command": "whois adautry",
   "responseType": "list",
   "value": [
     "A 27 years old full stack developper",
@@ -55,8 +46,7 @@ Display a table, this object requires two fields :
 
 ```json
 {
-  "id": 2,
-  "line": "whereis experiences",
+  "command": "whereis experiences",
   "responseType": "table",
   "headers": [
     "Date",
@@ -87,8 +77,7 @@ Just display text contained in `value`.
 
 ```json
 {
-    "id": 4,
-    "line": "find . -type f -print | xargs grep \"hobby\"",
+    "command": "find . -type f -print | xargs grep \"hobby\"",
     "responseType": "text",
     "value": "Bonsoir"
 }
@@ -100,8 +89,7 @@ Display code between `pre` tag, `value` is an array of string, each string is a 
 
 ```json
 {
-    "id": 1,
-    "line": "curl https://adautry.fr/user/03101994",
+    "command": "curl https://adautry.fr/user/03101994",
     "responseType": "code",
     "value": [
       "{",
@@ -113,3 +101,11 @@ Display code between `pre` tag, `value` is an array of string, each string is a 
     ]
 }
 ```
+
+## Customs commands
+
+In the `app.js` file you can see multiple arrays that stores commands :
+
+- `hiddenCommands`: Commands that are not use in autocompletion (easter egg commands for example)
+- `customCommands`: Commands that needs a specials JS treatments, in my case `dark`/`light` to swith app theme, `get cv` to download my resume, ...
+- `commandsList`: This is the main array used for autocompletion, it stores `customCommands` **and** commands that are listed in the `commands.json` file.
