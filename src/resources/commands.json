@@ -10,6 +10,7 @@
         "<code>help</code> : Affiche l'aide",
         "<code>hobby</code> : Affiche la liste de mes passes temps",
         "<code>projets-perso</code> : Affiche la liste de mes projets personnels",
+        "<code>dark/light</code> : Change le thème de la page",
         "<em>Vous pouvez utiliser la touche TAB afin de compléter une commande</em>",
         "<em>Vous pouvez retrouver les anciennes commandes avec les flèches haut et bas.</em>"
       ]
@@ -21,7 +22,7 @@
         "{",
         "   \"nom\" : \"Antoine DAUTRY\",",
         "   \"poste\" : \"Développeur Fullstack\",",
-        "   \"experience\" : \"3 ans\",",
+        "   \"experience\" : \"2 ans\",",
         "   \"ville\" : \"Nantes, France\"",
         "}"
       ]

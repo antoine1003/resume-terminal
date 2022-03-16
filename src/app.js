@@ -105,6 +105,7 @@ function addNewLine(previousUid = null) {
   const inputEl = document.createElement("input");
   inputEl.type = "text";
   inputEl.id = `input-${uid}`;
+  inputEl.autocapitalize = "off";
   inputEl.dataset.uid = uid;
   inputEl.dataset.active = "1"; // Utile pour le focus
   inputEl.addEventListener("keydown", onCommandInput);
@@ -129,7 +130,7 @@ function addNewLine(previousUid = null) {
  * @param e
  */
 function onCommandInput(e) {
-  const commandValue = e.target.value.trim();
+  const commandValue = e.target.value.trim().toLowerCase();
   if (e.keyCode === 13) {
     // ENTER
     if (commandValue !== "") {
