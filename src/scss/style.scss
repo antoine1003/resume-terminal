@@ -26,6 +26,9 @@ body {
       --username-color: #858585;
       --terminal-bg: rgb(0 0 0 / 90%);
       --terminal-header-bg: #585252;
+    &.firework {
+      --terminal-bg: rgb(0 0 0 / 15%);
+    }
   }
   box-sizing: border-box;
   margin: 0;

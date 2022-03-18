@@ -1,4 +1,5 @@
 import confetti from "canvas-confetti";
+import { Fireworks } from "fireworks-js";
 
 /**
  * Affiche des confettis sur la page
@@ -54,4 +55,13 @@ export function getCV() {
   a.href = "resources/CV - Antoine DAUTRY.pdf";
   a.setAttribute("download", "CV - Antoine DAUTRY.pdf");
   a.click();
+}
+
+export function rmRf() {
+  setDarkMode(true);
+  document.body.classList.add("firework");
+  const fireworks = new Fireworks(document.body, {
+    mouse: { click: true, move: false, max: 7 },
+  });
+  fireworks.start();
 }
