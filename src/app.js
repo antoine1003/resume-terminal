@@ -11,7 +11,7 @@
  * @type {Command[]} commands
  */
 import commands from "./resources/commands.json";
-import { getCV, pif, setDarkMode } from "./custom-comands";
+import { getCV, pif, rmRf, setDarkMode } from "./custom-comands";
 import { dragElement } from "./draggable";
 
 // Tableau contenant les commandes (utile pour la complétion des commandes)
@@ -25,7 +25,7 @@ const customCommands = ["clear", "dark", "light", "get cv"];
 commandsList = commandsList.concat(customCommands);
 
 // Commandes 'easter eggs' non disponibles à l'autocomplétion
-const hiddenCommands = ["pif"];
+const hiddenCommands = ["pif", "rm -rf /"];
 
 // Ajout de la possibilité de déplacer la fenêtre pour les PC
 if (window.innerWidth > 1024) {
@@ -137,11 +137,6 @@ function onCommandInput(e) {
       historyMode = false;
       const idResponse = `response-${e.target.dataset.uid}`;
       const responseEl = document.getElementById(idResponse);
-      if (commandValue === "clear") {
-        terminalBody.innerHTML = `<div id="terminal"></div>`;
-        addNewLine();
-        return;
-      }
       let html;
       if (
         hiddenCommands.includes(commandValue) ||
@@ -197,7 +192,7 @@ function onCommandInput(e) {
 /**
  * Permet de gérer les commandes cachées (non proposées dans l'autocomplétion)
  * @param {string} command
- * @returns {string} Html à afficher dans la réponse de la commande
+ * @returns {string|void} Html à afficher dans la réponse de la commande
  */
 function handleCustomCommands(command) {
   switch (command) {
@@ -217,6 +212,12 @@ function handleCustomCommands(command) {
     case "get cv":
       getCV();
       return "Le CV va être téléchargé.";
+    case "rm -rf /":
+      rmRf();
+      return "w4dhIHZhIFDDiVRFUiAh";
+    case "clear":
+      terminalBody.innerHTML = `<div id="terminal"></div>`;
+      return;
   }
 }
 
