@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  resume-terminal:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    # Not on DockerHub
+    image: antoine1003/resume-terminal
+    container_name: resume-terminal
+    ports:
+      - '80:80'
