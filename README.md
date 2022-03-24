@@ -6,6 +6,8 @@ This projet use [ParcelJS](https://parceljs.org/) as build tool. It is made from
 
 ## Run the project
 
+> First you need to install dependencies with `npm install`
+
 - To run in dev mode : `npm run dev`
 - To build for production : `npm run build`
 
