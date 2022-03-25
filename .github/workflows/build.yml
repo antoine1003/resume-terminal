@@ -14,13 +14,13 @@ jobs:
       with:
         node-version: '16.x'
     - name: Install npm dependencies
-      run: npm install
+      run: npm ci
     - name: Run build task
       run: npm run build --if-present
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
