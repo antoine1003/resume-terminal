@@ -203,14 +203,14 @@ function handleCustomCommands(command) {
   switch (command) {
     case "pif":
       pif();
-      return "C'est la fête !";
+    return "C'est la fête !";
     case "light":
-      if (document.body.classList.length === 0)
+      if (!document.body.classList.contains("dark-mode"))
         return "Vous êtes déjà en mode clair";
       setDarkMode(false);
       return "Vous êtes maintenant en mode clair.";
     case "dark":
-      if (document.body.classList.length === 1)
+      if (document.body.classList.contains("dark-mode"))
         return "Vous êtes déjà en mode sombre";
       setDarkMode(true);
       return "Vous êtes maintenant en mode sombre.";
