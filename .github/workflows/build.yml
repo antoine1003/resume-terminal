@@ -6,10 +6,9 @@ on:
       - 'main'
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
+    environment: prod
     steps:
     - uses: actions/checkout@v1
     - name: Install Node.js
@@ -25,7 +24,7 @@ jobs:
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: "dist/"
-          REMOTE_HOST: if: github.ref_name == 'main'${{ secrets.REMOTE_HOST }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET_PROD }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
