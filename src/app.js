@@ -52,6 +52,11 @@ if (now.getMonth() === 11) {
   document.body.append(stringToDom(html));
 }
 
+// Mise en mode sombre si le thème du navigateur est sombre
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  setDarkMode(true);
+}
+
 /**
  * Retourne le HTML de la réponse pour une commande donnée
  * @param {string} command
