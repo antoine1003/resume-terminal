@@ -2,7 +2,7 @@
 
 ## About
 
-This projet use [ParcelJS](https://parceljs.org/) as build tool. It is made from scratch, the only library used is for an hidden command `paf` [canvas-confetti](https://github.com/catdad/canvas-confetti).
+This projet use [ParcelJS](https://parceljs.org/) as build tool. It is made from scratch, the only library used is for an hidden command `pif` [canvas-confetti](https://github.com/catdad/canvas-confetti).
 
 ## Run the project
 
