@@ -14,34 +14,34 @@ import commands from "./resources/commands.json";
 import { getCV, pif, rmRf, setDarkMode } from "./custom-comands";
 import { dragElement } from "./draggable";
 
-// Tableau contenant les commandes (utile pour la complétion des commandes)
+// Table containing the orders (useful for the completion of the orders)
 let commandsList = [];
 commands.forEach((c) => {
   commandsList.push(c.command);
 });
 
-// Commandes qui nécessitent un traitement JS
+// Commands that require JS processing
 const customCommands = ["clear", "dark", "light", "get cv"];
 commandsList = commandsList.concat(customCommands);
 
-// Commandes 'easter eggs' non disponibles à l'autocomplétion
+// Eyster eggs' commands not available for autocompletion
 const hiddenCommands = ["pif", "rm -rf /"];
 
-// Ajout de la possibilité de déplacer la fenêtre pour les PC
+// Added the ability to move the window for PCs
 if (window.innerWidth > 1024) {
   dragElement(document.querySelector(".terminal"));
 }
 
-// Tableau contenant l'historique des commandes
+// Order history table
 const commandsHistory = [];
 let historyMode = false;
 let historyIndex = -1;
 const terminalBody = document.querySelector(".terminal__body");
 
-// Ajout de la ligne par défaut
+// Adding the default line
 addNewLine();
 
-// Easter egg de décembre, ajout de flocons de neige
+// December Easter egg, adding snowflakes
 const now = new Date();
 if (now.getMonth() === 11) {
   let htmlFlakes = "";
@@ -52,13 +52,13 @@ if (now.getMonth() === 11) {
   document.body.append(stringToDom(html));
 }
 
-// Mise en mode sombre si le thème du navigateur est sombre
+// Set to dark mode if the browser theme is dark
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   setDarkMode(true);
 }
 
 /**
- * Retourne le HTML de la réponse pour une commande donnée
+ * Returns the HTML of the response for a given command
  * @param {string} command
  */
 function getDomForCommand(command) {
@@ -67,7 +67,7 @@ function getDomForCommand(command) {
   if (commandObj === undefined) {
     html = `'${
       command.split(" ")[0]
-    }' n’est pas reconnu en tant que commande interne ou externe, un programme exécutable ou un fichier de commandes. Tapez la commande <code>help</code> pour afficher la liste des commandes disponibles.`;
+    }' is not recognized as an internal command or external command, operable program or batch file.  Type the <code>help</code> command to display a list of available commands.`;
   } else {
     if (commandObj.responseType === "list" && Array.isArray(commandObj.value)) {
       html = "<ul>";
@@ -92,7 +92,7 @@ function getDomForCommand(command) {
 }
 
 /**
- * Ajoute une nouvelle ligne input de commande et désactive la précédente.
+ * Adds a new command input line and disables the previous one.
  * @param {string|null} previousUid uid de la ligne précédente.
  */
 function addNewLine(previousUid = null) {
@@ -112,7 +112,7 @@ function addNewLine(previousUid = null) {
   inputEl.id = `input-${uid}`;
   inputEl.autocapitalize = "off";
   inputEl.dataset.uid = uid;
-  inputEl.dataset.active = "1"; // Utile pour le focus
+  inputEl.dataset.active = "1"; // Needed for focus
   inputEl.addEventListener("keydown", onCommandInput);
 
   terminalLineEl.appendChild(inputEl);
@@ -127,11 +127,11 @@ function addNewLine(previousUid = null) {
   document.getElementById("terminal").appendChild(terminalLineEl);
   document.getElementById("terminal").appendChild(terminalResponseEl);
 
-  inputEl.focus(); // Ajoute le focus dès la création du champs
+  inputEl.focus(); // Adds the focus as soon as the field is created
 }
 
 /**
- * Gère le keydown sur l'input de la commande.
+ * Manages the keydown on the command input.
  * @param e
  */
 function onCommandInput(e) {
@@ -173,7 +173,7 @@ function onCommandInput(e) {
     historyMode = false;
   } else if (e.keyCode === 38 || e.keyCode === 40) {
     // UP / DOWN
-    // Gestion de l'historique
+    // History management
     if (commandsHistory.length > 0) {
       if (historyMode === false) {
         historyIndex = commandsHistory.length - 1;
@@ -195,31 +195,31 @@ function onCommandInput(e) {
 }
 
 /**
- * Permet de gérer les commandes cachées (non proposées dans l'autocomplétion)
+ * Allows to manage hidden commands (not proposed in the autocompletion)
  * @param {string} command
- * @returns {string|void} Html à afficher dans la réponse de la commande
+ * @returns {string|void} Html to be displayed in the response of the command
  */
 function handleCustomCommands(command) {
   switch (command) {
     case "pif":
       pif();
-      return "C'est la fête !";
+      return "Let's go !";
     case "light":
       if (!document.body.classList.contains("dark-mode"))
-        return "Vous êtes déjà en mode clair";
+        return "You are already in light mode.";
       setDarkMode(false);
-      return "Vous êtes maintenant en mode clair.";
+      return "Your are now in light mode.";
     case "dark":
       if (document.body.classList.contains("dark-mode"))
-        return "Vous êtes déjà en mode sombre";
+        return "You are already in dark mode.";
       setDarkMode(true);
-      return "Vous êtes maintenant en mode sombre.";
+      return "You are now in dark mode.";
     case "get cv":
       getCV();
-      return "Le CV va être téléchargé.";
+      return "The CV will be downloaded.";
     case "rm -rf /":
       rmRf();
-      return "w4dhIHZhIFDDiVRFUiAh";
+      return "🎆";
     case "clear":
       terminalBody.innerHTML = `<div id="terminal"></div>`;
       return;
@@ -239,7 +239,7 @@ function stringToDom(html) {
 //                                EVENT LISTENNER
 // ------------------------------------------------------------------------------------
 
-// Ajout du focus sur l'input même si on clique sur le body (pour garder le curseur)
+// Added focus on the input even if you click on the body (to keep the cursor)
 document.body.addEventListener("click", function (e) {
   if (e.target.tagName !== "INPUT") {
     const activeInput = document.querySelector("input[data-active]");
