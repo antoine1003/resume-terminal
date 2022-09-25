@@ -3,27 +3,27 @@
       "command":"help",
       "responseType":"list",
       "value":[
-        "<code>a-propos</code> : Affiche les informations me concernant",
-        "<code>clear</code> : Nettoie le terminal",
-        "<code>experiences</code> : Affiche la liste de mes expériences",
-        "<code>get cv</code> : Télécharge le CV",
-        "<code>help</code> : Affiche l'aide",
-        "<code>hobby</code> : Affiche la liste de mes passes temps",
-        "<code>projets-perso</code> : Affiche la liste de mes projets personnels",
-        "<code>dark/light</code> : Change le thème de la page",
-        "<em>Vous pouvez utiliser la touche TAB afin de compléter une commande</em>",
-        "<em>Vous pouvez retrouver les anciennes commandes avec les flèches haut et bas.</em>"
+        "<code>about</code> : Displays information about me",
+        "<code>clear</code> : Clear terminal",
+        "<code>experiences</code> : Display the list of my professional experiences",
+        "<code>get cv</code> : Download CV",
+        "<code>help</code> : Display help",
+        "<code>hobbies</code> : Display the list of my hobbies",
+        "<code>projects</code> : Display the list of my personal projects",
+        "<code>dark/light</code> : Change theme",
+        "<em>You can use the TAB key to complete a command</em>",
+        "<em>You can find old commands with the up and down arrows.</em>"
       ]
     },
     {
-      "command":"a-propos",
+      "command":"about",
       "responseType":"code",
       "value":[
         "{",
-        "   \"nom\" : \"Antoine DAUTRY\",",
-        "   \"poste\" : \"Développeur Fullstack\",",
-        "   \"experience\" : \"2 ans\",",
-        "   \"ville\" : \"Nantes, France\"",
+        "   \"name\" : \"Antoine DAUTRY\",",
+        "   \"poste\" : \"Fullstack developer\",",
+        "   \"experience\" : \"3 years\",",
+        "   \"city\" : \"Nantes, France\"",
         "}"
       ]
     },
@@ -38,65 +38,65 @@
       ],
       "rows":[
         [
-          "11/2021<br/>Ajd",
-          "Elephant Tech<br/><em>Ministère de la justice</em>",
-          "Mise en place d'une plateforme mettant en relation les<br/>différents acteurs de la réinsertion des anciens détenus.",
+          "11/2021<br/>Now",
+          "Elephant Tech<br/><em>Ministry of Justice</em>",
+          "Establishment of a platform linking the various actors<br/>in the reintegration of former prisoners.",
           "Angular 11<br/>Spring Boot<br/>Axelor"
         ],
         [
           "03/2021<br/>11/2021",
           "SII<br/><em>La Poste</em>",
-          "Outil interne La Poste permettant de répartir les techniciens<br/>sur différentes missions.",
+          "La Poste's internal tool for allocating technicians to different<br/>missions.",
           "Angular 11<br/>Spring Boot<br/>Spring Batch"
         ],
         [
           "02/2020<br/>03/2021",
           "SII<br/><em>I.T. Dept</em>",
-          "Maintenance d'un outil interne de feuille de temps.<br/>Développement de plugins pour notre version de ProjeQtor.<br/>Conversion d'une ancienne webapp vers Angular 9.",
+          "Maintenance d'un outil interne de feuille de temps.<br/>Development of plugins for our version of ProjeQtor.<br/>Conversion of an old webapp to Angular 9.",
           "Symfony<br/>Angular 9"
         ],
         [
           "11/2019<br/>02/2020",
           "SII<br/><em>Poste IMMO</em>",
-          "Travail sur un outil de gestion de processus pour gérer l'évolution d'une demande de travaux.",
+          "Work on a process management tool to manage the evolution of a work request.",
           "Symfony 3.4<br/>AngularJS<br/>Processmaker"
         ]
       ]
     },
     {
-      "command":"hobby",
+      "command":"hobbies",
       "responseType":"list",
       "value":[
-        "Musique: Piano, Guitare",
+        "Music: Piano, Guitar",
         "Programmation: JS, Angular, PHP",
-        "Autre: Cinéma, Aéronautique, Photographie"
+        "Other: Cinema, Aeronautics, Photography"
       ]
     },
     {
-      "command":"projets-perso",
+      "command":"projects",
       "responseType":"table",
       "headers":[
-        "Nom",
+        "Name",
         "Description",
         "Tech",
-        "Liens"
+        "Links"
       ],
       "rows":[
         [
           "Chartsfinder - Web<br/>(2021)",
-          "Application web pour trouver rapidement des cartes aéronautiques. Une version C# existait déjà mais j'ai préféré la mettre à jour avec une version web qui est plus simple d'utilisation.",
+          "Web application to quickly find aeronautical maps. A C# version already existed but I preferred to update it with a web version which is easier to use.",
           "Angular 11, PHP 7.4",
           "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Lien</a>"
         ],
         [
           "Personal website<br/>(2021)",
-          "Site web personnel me permettant de montrer mes projets et de déployer une nouvelle version du logiciel.<br/>Il y a même un jeu caché...",
+          "Personal website allowing me to show my projects and deploy a new version of the software.<br/>There is even a hidden game...",
           "Symfony 5",
           "<a href=\"https://adautry.fr\" target=\"blank\">Lien</a>"
         ],
         [
           "Chartsfinder - Software<br/>(2020)",
-          "Logiciel permettant de récupérer rapidement les cartes aéronautiques.",
+          "Software to quickly retrieve aeronautical charts.",
           "C# WPF",
           "<a href=\"https://adautry.fr/software/chartsfinder\" target=\"blank\">Lien</a>"
         ]
