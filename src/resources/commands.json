@@ -52,7 +52,7 @@
         [
           "02/2020<br/>03/2021",
           "SII<br/><em>I.T. Dept</em>",
-          "Maintenance d'un outil interne de feuille de temps.<br/>Development of plugins for our version of ProjeQtor.<br/>Conversion of an old webapp to Angular 9.",
+          "Maintenance of an internal timesheet tool.<br/>Development of plugins for our version of ProjeQtor.<br/>Conversion of an old webapp to Angular 9.",
           "Symfony<br/>Angular 9"
         ],
         [
@@ -86,19 +86,19 @@
           "Chartsfinder - Web<br/>(2021)",
           "Web application to quickly find aeronautical maps. A C# version already existed but I preferred to update it with a web version which is easier to use.",
           "Angular 11, PHP 7.4",
-          "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Lien</a>"
+          "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Links</a>"
         ],
         [
           "Personal website<br/>(2021)",
           "Personal website allowing me to show my projects and deploy a new version of the software.<br/>There is even a hidden game...",
           "Symfony 5",
-          "<a href=\"https://adautry.fr\" target=\"blank\">Lien</a>"
+          "<a href=\"https://adautry.fr\" target=\"blank\">Link</a>"
         ],
         [
           "Chartsfinder - Software<br/>(2020)",
           "Software to quickly retrieve aeronautical charts.",
           "C# WPF",
-          "<a href=\"https://adautry.fr/software/chartsfinder\" target=\"blank\">Lien</a>"
+          "<a href=\"https://adautry.fr/software/chartsfinder\" target=\"blank\">Link</a>"
         ]
       ]
     }
