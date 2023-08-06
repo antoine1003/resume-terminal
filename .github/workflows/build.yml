@@ -29,4 +29,6 @@ jobs:
           TARGET: ${{ vars.REMOTE_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
           SCRIPT_BEFORE: |
-            rm -rf $REMOTE_TARGET/*
+            echo "Running before script"
+            echo "$REMOTE_TARGET/*"
+            rm -rf "$REMOTE_TARGET/*"
