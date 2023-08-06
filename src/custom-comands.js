@@ -58,6 +58,7 @@ export function getCV() {
 }
 
 export function rmRf() {
+  if (document.body.classList.contains("firework")) return;
   setDarkMode(true);
   document.body.classList.add("firework");
   const fireworks = new Fireworks(document.body, {
