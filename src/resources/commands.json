@@ -22,7 +22,7 @@
         "{",
         "   \"name\" : \"Antoine DAUTRY\",",
         "   \"poste\" : \"Fullstack developer\",",
-        "   \"experience\" : \"3 years\",",
+        "   \"experience\" : \"4 years\",",
         "   \"city\" : \"Nantes, France\"",
         "}"
       ]
@@ -38,7 +38,13 @@
       ],
       "rows":[
         [
-          "11/2021<br/>Now",
+          "07/2023<br/>Now",
+          "Airbus Helicopters",
+          "Setting up a website to provide tools for several<br/>internal departments",
+          "Angular 16<br/>Symfony 6<br/>EventSource"
+        ],
+        [
+          "11/2021<br/>06/2023",
           "Elephant Tech<br/><em>Ministry of Justice</em>",
           "Establishment of a platform linking the various actors<br/>in the reintegration of former prisoners.",
           "Angular 11<br/>Spring Boot<br/>Axelor"
@@ -82,6 +88,12 @@
         "Links"
       ],
       "rows":[
+        [
+          "Form to Resume - Web<br/>(2023)",
+          "I set up a private web page where I can manually change data from my resume via a form. After validating changes, this will generate a PDF file that will be available on the public link.",
+          "Angular 16, PHP 8.2",
+          "<a href=\"https://my-resume.adautry.fr/show-latest\" target=\"blank\">Links</a>"
+        ],
         [
           "Chartsfinder - Web<br/>(2021)",
           "Web application to quickly find aeronautical maps. A C# version already existed but I preferred to update it with a web version which is easier to use.",
