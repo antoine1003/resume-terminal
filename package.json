@@ -3,8 +3,9 @@
   "version": "2.1.4",
   "description": "Nice looking resume.",
   "scripts": {
+    "clean:output": "rimraf dist",
     "dev": "npx parcel src/index.html",
-    "build": "npx parcel build src/index.html"
+    "build": "npm run clean:output && npx parcel build src/index.html --no-source-maps"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "cssnano": "^5.0.8",
     "parcel": "^2.0.0",
     "prettier": "2.4.1",
+    "rimraf": "^5.0.1",
     "sass": "^1.43.4"
   }
 }
