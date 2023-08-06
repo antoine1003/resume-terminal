@@ -1,4 +1,4 @@
-name: Node CI
+name: Deploy to server
 
 on: 
   push:
@@ -26,5 +26,7 @@ jobs:
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
+          TARGET: ${{ vars.REMOTE_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
+          SCRIPT_BEFORE: |
+            rm -rf REMOTE_TARGET/*
