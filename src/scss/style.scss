@@ -63,6 +63,10 @@ ul {
   height: 450px;
   width: min(900px, 90vw);
 
+  &::-webkit-resizer {
+    background: transparent;
+  }
+
   .terminal__header {
     height: 25px;
     padding: 0 8px;
@@ -116,6 +120,26 @@ ul {
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
     height: calc(100% - 41px);
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--text-accent-color);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--text-accent-color);
+    }
 
     code {
       color: var(--text-accent-color);
