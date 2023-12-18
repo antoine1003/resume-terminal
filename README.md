@@ -111,3 +111,8 @@ In the `app.js` file you can see multiple arrays that stores commands :
 - `hiddenCommands`: Commands that are not use in autocompletion (easter egg commands for example)
 - `customCommands`: Commands that needs a specials JS treatments, in my case `dark`/`light` to swith app theme, `get cv` to download my resume, ...
 - `commandsList`: This is the main array used for autocompletion, it stores `customCommands` **and** commands that are listed in the `commands.json` file.
+
+
+## Attributions
+
+- [Image from vector_corp](https://www.freepik.com/free-ai-image/halloween-scene-with-pumpkins-bats-full-moon_72868248.htm#query=haloween&position=4&from_view=search&track=sph&uuid=bedaf5ef-3c64-4822-82eb-3d4f750703f8) on Freepik

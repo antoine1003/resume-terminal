@@ -55,7 +55,7 @@ if (now.getMonth() === 11) {
 }
 
 // Easter egg for halloween, adding bats
-if (now.getMonth() === 9) {
+if (now.getMonth() === 9 && now.getDate() >= 28) {
     setHalloweenTheme();
 }
 
