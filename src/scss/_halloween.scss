@@ -1,0 +1,21 @@
+.halloween-bg {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: top;
+    opacity: .5;
+    filter: saturate(1.5) brightness(1.2);
+}
+
+body.halloween .terminal .terminal__body {
+    background: #00000036;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+body:not(.dark-mode) .halloween-bg {
+    opacity: .8;
+}

@@ -10,7 +10,7 @@
         "<code>help</code> : Display help",
         "<code>hobbies</code> : Display the list of my hobbies",
         "<code>projects</code> : Display the list of my personal projects",
-        "<code>dark/light</code> : Change theme",
+        "<code>dark/light/halloween</code> : Change theme",
         "<em>You can use the TAB key to complete a command</em>",
         "<em>You can find old commands with the up and down arrows.</em>"
       ]

@@ -1,6 +1,6 @@
 {
   "name": "cv-terminal",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Nice looking resume.",
   "scripts": {
     "clean:output": "rimraf dist",

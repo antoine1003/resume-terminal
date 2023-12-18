@@ -304,6 +304,7 @@ ul {
     width: unset;
     height: unset;
     resize: none;
+    z-index: 2;
     .terminal__body {
       max-width: unset;
       width: 90vw;
@@ -336,3 +337,4 @@ ul {
 }
 
 @import "snowflakes";
+@import "halloween";
