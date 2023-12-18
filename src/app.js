@@ -11,7 +11,8 @@
  * @type {Command[]} commands
  */
 import commands from "./resources/commands.json";
-import {getCV, pif, rmRf, setDarkMode} from "./custom-comands";
+import {getCV, pif, rmRf, setDarkMode, setHalloweenTheme} from "./custom-comands";
+import {stringToDom} from "./utils";
 import {dragElement} from "./draggable";
 import DOMPurify from 'dompurify';
 
@@ -22,7 +23,7 @@ commands.forEach((c) => {
 });
 
 // Commands that require JS processing
-const customCommands = ["clear", "dark", "light", "get cv"];
+const customCommands = ["clear", "dark", "light", "get cv", "halloween"];
 commandsList = commandsList.concat(customCommands);
 
 // Eyster eggs' commands not available for autocompletion
@@ -52,6 +53,12 @@ if (now.getMonth() === 11) {
     const html = `<div class="snowflakes" aria-hidden="true">${htmlFlakes}</div>`;
     document.body.append(stringToDom(html));
 }
+
+// Easter egg for halloween, adding bats
+if (now.getMonth() === 9 && now.getDate() >= 28) {
+    setHalloweenTheme();
+}
+
 
 // Set to dark mode if the browser theme is dark
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -228,16 +235,10 @@ function handleCustomCommands(command) {
         case "clear":
             terminalBody.innerHTML = `<div id="terminal"></div>`;
             return;
+        case "halloween":
+            setHalloweenTheme();
+            return "🎃";
     }
-}
-
-/**
- * Convert HTML to DOM object
- * @param html
- * @returns {DocumentFragment}
- */
-function stringToDom(html) {
-    return document.createRange().createContextualFragment(html);
 }
 
 // ------------------------------------------------------------------------------------

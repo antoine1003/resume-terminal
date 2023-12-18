@@ -1,5 +1,6 @@
 import confetti from "canvas-confetti";
 import { Fireworks } from "fireworks-js";
+import { stringToDom } from "./utils";
 
 /**
  * Affiche des confettis sur la page
@@ -65,4 +66,18 @@ export function rmRf() {
     mouse: { click: true, move: false, max: 7 },
   });
   fireworks.start();
+}
+
+export function setHalloweenTheme() {
+  const isActive = document.querySelector(".halloween-bg");
+  if (isActive) return;
+   // add image
+   const imageUrl = new URL(
+    'images/halloween-bg.jpg',
+    import.meta.url
+  );
+  const html = `<img src="${imageUrl}" class="halloween-bg" alt="Halloween background" />`;
+  document.body.prepend(stringToDom(html));
+  document.body.classList.add("halloween");
+  setDarkMode(true);
 }
