@@ -2,7 +2,12 @@
 
 ## About
 
-This projet use [ParcelJS](https://parceljs.org/) as build tool. It is made from scratch, the only library used is for an hidden command `pif` [canvas-confetti](https://github.com/catdad/canvas-confetti).
+This projet use [ParcelJS](https://parceljs.org/) as build tool.
+
+It is made from scratch, some libraries are used for hidden commands :
+
+- `pif` [canvas-confetti](https://github.com/catdad/canvas-confetti).
+- `rm -rf /` [fireworks-js](https://github.com/crashmax-dev/fireworks-js/).
 
 ## Run the project
 
@@ -18,6 +23,7 @@ This projet use [ParcelJS](https://parceljs.org/) as build tool. It is made from
 File `commands.json` contain all commands that just needs to display simple data and doesn't need a JS actions.
 
 For now, there are 4 possible type of steps :
+
 - list
 - text
 - code
@@ -79,9 +85,9 @@ Just display text contained in `value`.
 
 ```json
 {
-    "command": "find . -type f -print | xargs grep \"hobby\"",
-    "responseType": "text",
-    "value": "Bonsoir"
+  "command": "find . -type f -print | xargs grep \"hobby\"",
+  "responseType": "text",
+  "value": "Bonsoir"
 }
 ```
 
@@ -91,16 +97,16 @@ Display code between `pre` tag, `value` is an array of string, each string is a 
 
 ```json
 {
-    "command": "curl https://adautry.fr/user/03101994",
-    "responseType": "code",
-    "value": [
-      "{",
-      "   \"name\":\"Antoine DAUTRY\",",
-      "   \"job\":\"Fullstack developper\",",
-      "   \"experience\":\"3 years\",",
-      "   \"city\":\"Nantes\"",
-      "}"
-    ]
+  "command": "curl https://adautry.fr/user/03101994",
+  "responseType": "code",
+  "value": [
+    "{",
+    "   \"name\":\"Antoine DAUTRY\",",
+    "   \"job\":\"Fullstack developper\",",
+    "   \"experience\":\"3 years\",",
+    "   \"city\":\"Nantes\"",
+    "}"
+  ]
 }
 ```
 
@@ -109,10 +115,12 @@ Display code between `pre` tag, `value` is an array of string, each string is a 
 In the `app.js` file you can see multiple arrays that stores commands :
 
 - `hiddenCommands`: Commands that are not use in autocompletion (easter egg commands for example)
-- `customCommands`: Commands that needs a specials JS treatments, in my case `dark`/`light` to swith app theme, `get cv` to download my resume, ...
-- `commandsList`: This is the main array used for autocompletion, it stores `customCommands` **and** commands that are listed in the `commands.json` file.
-
+- `customCommands`: Commands that needs a specials JS treatments, in my case `dark`/`light` to swith app theme, `get cv`
+  to download my resume, ...
+- `commandsList`: This is the main array used for autocompletion, it stores `customCommands` **and** commands that are
+  listed in the `commands.json` file.
 
 ## Attributions
 
-- [Image from vector_corp](https://www.freepik.com/free-ai-image/halloween-scene-with-pumpkins-bats-full-moon_72868248.htm#query=haloween&position=4&from_view=search&track=sph&uuid=bedaf5ef-3c64-4822-82eb-3d4f750703f8) on Freepik
+- [Image from vector_corp](https://www.freepik.com/free-ai-image/halloween-scene-with-pumpkins-bats-full-moon_72868248.htm#query=haloween&position=4&from_view=search&track=sph&uuid=bedaf5ef-3c64-4822-82eb-3d4f750703f8)
+  on Freepik
