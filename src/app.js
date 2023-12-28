@@ -11,7 +11,15 @@
  * @type {Command[]} commands
  */
 import commands from "./resources/commands.json";
-import {getCV, pif, rmRf, setDarkMode, setHalloweenTheme} from "./custom-comands";
+import {
+    getCV,
+    pif,
+    rmRf,
+    setDarkMode,
+    setHalloweenTheme,
+    showSanta,
+    showSantaAndRemoveListener
+} from "./custom-comands";
 import {stringToDom} from "./utils";
 import {dragElement} from "./draggable";
 import DOMPurify from 'dompurify';
@@ -23,11 +31,11 @@ commands.forEach((c) => {
 });
 
 // Commands that require JS processing
-const customCommands = ["clear", "dark", "light", "get cv", "halloween"];
+const customCommands = ["clear", "dark", "light", "get cv"];
 commandsList = commandsList.concat(customCommands);
 
 // Eyster eggs' commands not available for autocompletion
-const hiddenCommands = ["pif", "rm -rf /"];
+const hiddenCommands = ["pif", "rm -rf /", "hohoho", "boo"];
 
 // Added the ability to move the window for PCs
 if (window.innerWidth > 1024) {
@@ -54,11 +62,17 @@ if (now.getMonth() === 11) {
     document.body.append(stringToDom(html));
 }
 
-// Easter egg for halloween, adding bats
+// Christmas Easter egg, adding Santa
+if (now.getMonth() === 11) {
+    document.addEventListener('click', showSantaAndRemoveListener);
+}
+
+
+// Easter egg for Halloween, adding bats
 if (now.getMonth() === 9 && now.getDate() >= 28) {
     setHalloweenTheme();
 }
-
+Z
 
 // Set to dark mode if the browser theme is dark
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -235,9 +249,12 @@ function handleCustomCommands(command) {
         case "clear":
             terminalBody.innerHTML = `<div id="terminal"></div>`;
             return;
-        case "halloween":
+        case "boo":
             setHalloweenTheme();
             return "🎃";
+        case "hohoho":
+            showSanta();
+            return "🎅🎁";
     }
 }
 
