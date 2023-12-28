@@ -20,14 +20,14 @@ import {
     showSanta,
     showSantaAndRemoveListener
 } from "./custom-comands";
-import {stringToDom} from "./utils";
-import {dragElement} from "./draggable";
+import { stringToDom } from "./utils";
+import { dragElement } from "./draggable";
 import DOMPurify from 'dompurify';
 
 // Table containing the orders (useful for the completion of the orders)
 let commandsList = [];
 commands.forEach((c) => {
-    commandsList.push(c.command);
+  commandsList.push(c.command);
 });
 
 // Commands that require JS processing
@@ -39,7 +39,7 @@ const hiddenCommands = ["pif", "rm -rf /", "hohoho", "boo"];
 
 // Added the ability to move the window for PCs
 if (window.innerWidth > 1024) {
-    dragElement(document.querySelector(".terminal"));
+  dragElement(document.querySelector(".terminal"));
 }
 
 // Order history table
@@ -54,29 +54,29 @@ addNewLine();
 // December Easter egg, adding snowflakes
 const now = new Date();
 if (now.getMonth() === 11) {
-    let htmlFlakes = "";
-    for (let i = 0; i < 6; i++) {
-        htmlFlakes += `<div class="snowflake">❅</div><div class="snowflake">❆</div>`;
-    }
-    const html = `<div class="snowflakes" aria-hidden="true">${htmlFlakes}</div>`;
-    document.body.append(stringToDom(html));
+  let htmlFlakes = "";
+  for (let i = 0; i < 6; i++) {
+    htmlFlakes += `<div class="snowflake">❅</div><div class="snowflake">❆</div>`;
+  }
+  const html = `<div class="snowflakes" aria-hidden="true">${htmlFlakes}</div>`;
+  document.body.append(stringToDom(html));
 }
 
 // Christmas Easter egg, adding Santa
 if (now.getMonth() === 11) {
-    document.addEventListener('click', showSantaAndRemoveListener);
+  document.addEventListener('click', showSantaAndRemoveListener);
 }
 
 
 // Easter egg for Halloween, adding bats
 if (now.getMonth() === 9 && now.getDate() >= 28) {
-    setHalloweenTheme();
+  setHalloweenTheme();
 }
-Z
+
 
 // Set to dark mode if the browser theme is dark
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    setDarkMode(true);
+  setDarkMode(true);
 }
 
 /**
@@ -84,37 +84,37 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
  * @param {string} command
  */
 function getDomForCommand(command) {
-    const commandObj = commands.find((el) => el.command === command);
-    let purifiedCommand = DOMPurify.sanitize(command);
-    purifiedCommand = purifiedCommand.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const commandObj = commands.find((el) => el.command === command);
+  let purifiedCommand = DOMPurify.sanitize(command);
+  purifiedCommand = purifiedCommand.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-    console.log(purifiedCommand)
-    let html = "";
-    if (commandObj === undefined) {
-        html = `'${
-            purifiedCommand.split(" ")[0]
-        }' is not recognized as an internal command or external command, operable program or batch file.  Type the <code>help</code> command to display a list of available commands.`;
-    } else {
-        if (commandObj.responseType === "list" && Array.isArray(commandObj.value)) {
-            html = "<ul>";
-            html += commandObj.value.map((s) => `<li>${s}</li>`).join("");
-            html += "</ul>";
-        } else if (commandObj.responseType === "text") {
-            html = commandObj.value;
-        } else if (commandObj.responseType === "table") {
-            const headers = commandObj.headers;
-            const rows = commandObj.rows;
-            const thsHtml = headers.map((h) => `<th>${h}</th>`).join("");
-            const tdsHtml = rows
-                .map((r) => `<tr>${r.map((rtd) => `<td>${rtd}</td>`).join("")}</tr>`)
-                .join("");
-            html = `<table><thead><tr>${thsHtml}</tr></thead><tbody>${tdsHtml}</tbody></table>`;
-        } else if (commandObj.responseType === "code") {
-            html = `<pre>${commandObj.value.join("\n")}</pre>`;
-        }
+  console.log(purifiedCommand)
+  let html = "";
+  if (commandObj === undefined) {
+    html = `'${
+      purifiedCommand.split(" ")[0]
+    }' is not recognized as an internal command or external command, operable program or batch file.  Type the <code>help</code> command to display a list of available commands.`;
+  } else {
+    if (commandObj.responseType === "list" && Array.isArray(commandObj.value)) {
+      html = "<ul>";
+      html += commandObj.value.map((s) => `<li>${s}</li>`).join("");
+      html += "</ul>";
+    } else if (commandObj.responseType === "text") {
+      html = commandObj.value;
+    } else if (commandObj.responseType === "table") {
+      const headers = commandObj.headers;
+      const rows = commandObj.rows;
+      const thsHtml = headers.map((h) => `<th>${h}</th>`).join("");
+      const tdsHtml = rows
+        .map((r) => `<tr>${r.map((rtd) => `<td>${rtd}</td>`).join("")}</tr>`)
+        .join("");
+      html = `<table><thead><tr>${thsHtml}</tr></thead><tbody>${tdsHtml}</tbody></table>`;
+    } else if (commandObj.responseType === "code") {
+      html = `<pre>${commandObj.value.join("\n")}</pre>`;
     }
+  }
 
-    return html;
+  return html;
 }
 
 /**
@@ -122,38 +122,38 @@ function getDomForCommand(command) {
  * @param {string|null} previousUid uid de la ligne précédente.
  */
 function addNewLine(previousUid = null) {
-    const uid = Math.random().toString(36).replace("0.", "");
-    // terminal__line
-    const terminalLineEl = document.createElement("div");
-    terminalLineEl.classList.add("terminal__line");
+  const uid = Math.random().toString(36).replace("0.", "");
+  // terminal__line
+  const terminalLineEl = document.createElement("div");
+  terminalLineEl.classList.add("terminal__line");
 
-    // terminal__response
-    const terminalResponseEl = document.createElement("div");
-    terminalResponseEl.classList.add("terminal__response");
-    terminalResponseEl.id = `response-${uid}`;
+  // terminal__response
+  const terminalResponseEl = document.createElement("div");
+  terminalResponseEl.classList.add("terminal__response");
+  terminalResponseEl.id = `response-${uid}`;
 
-    // input text
-    const inputEl = document.createElement("input");
-    inputEl.type = "text";
-    inputEl.id = `input-${uid}`;
-    inputEl.autocapitalize = "off";
-    inputEl.dataset.uid = uid;
-    inputEl.dataset.active = "1"; // Needed for focus
-    inputEl.addEventListener("keydown", onCommandInput);
+  // input text
+  const inputEl = document.createElement("input");
+  inputEl.type = "text";
+  inputEl.id = `input-${uid}`;
+  inputEl.autocapitalize = "off";
+  inputEl.dataset.uid = uid;
+  inputEl.dataset.active = "1"; // Needed for focus
+  inputEl.addEventListener("keydown", onCommandInput);
 
-    terminalLineEl.appendChild(inputEl);
-    if (previousUid) {
-        const previousInputEl = document.getElementById(previousUid);
-        if (previousInputEl) {
-            previousInputEl.setAttribute("disabled", "true");
-            previousInputEl.removeEventListener("keydown", onCommandInput);
-            delete previousInputEl.dataset.active;
-        }
+  terminalLineEl.appendChild(inputEl);
+  if (previousUid) {
+    const previousInputEl = document.getElementById(previousUid);
+    if (previousInputEl) {
+      previousInputEl.setAttribute("disabled", "true");
+      previousInputEl.removeEventListener("keydown", onCommandInput);
+      delete previousInputEl.dataset.active;
     }
-    document.getElementById("terminal").appendChild(terminalLineEl);
-    document.getElementById("terminal").appendChild(terminalResponseEl);
+  }
+  document.getElementById("terminal").appendChild(terminalLineEl);
+  document.getElementById("terminal").appendChild(terminalResponseEl);
 
-    inputEl.focus(); // Adds the focus as soon as the field is created
+  inputEl.focus(); // Adds the focus as soon as the field is created
 }
 
 /**
@@ -161,63 +161,63 @@ function addNewLine(previousUid = null) {
  * @param e
  */
 function onCommandInput(e) {
-    const commandValue = e.target.value.trim().toLowerCase();
-    if (e.keyCode === 13) {
-        // ENTER
-        if (commandValue !== "") {
-            historyMode = false;
-            const idResponse = `response-${e.target.dataset.uid}`;
-            const responseEl = document.getElementById(idResponse);
-            let html;
-            if (
-                hiddenCommands.includes(commandValue) ||
-                customCommands.includes(commandValue)
-            ) {
-                html = handleCustomCommands(commandValue);
-            } else {
-                html = getDomForCommand(commandValue);
-            }
-            if (responseEl) {
-                responseEl.innerHTML = html;
-                commandsHistory.push(commandValue);
-                addNewLine(e.target.id);
-            }
-        }
-    } else if (e.keyCode === 9) {
-        // TAB
-        e.preventDefault();
-        if (commandValue === "") {
-            this.value = "help";
-        } else {
-            const matchingCommand = commandsList.find((c) =>
-                c.startsWith(commandValue)
-            );
-            if (matchingCommand) {
-                this.value = matchingCommand;
-            }
-        }
-        historyMode = false;
-    } else if (e.keyCode === 38 || e.keyCode === 40) {
-        // UP / DOWN
-        // History management
-        if (commandsHistory.length > 0) {
-            if (historyMode === false) {
-                historyIndex = commandsHistory.length - 1;
-            } else {
-                if (e.keyCode === 38 && historyIndex !== 0) {
-                    // UP
-                    historyIndex--;
-                } else if (
-                    e.keyCode === 40 &&
-                    historyIndex !== commandsHistory.length - 1
-                ) {
-                    historyIndex++;
-                }
-            }
-            this.value = commandsHistory[historyIndex];
-        }
-        historyMode = true;
+  const commandValue = e.target.value.trim().toLowerCase();
+  if (e.keyCode === 13) {
+    // ENTER
+    if (commandValue !== "") {
+      historyMode = false;
+      const idResponse = `response-${e.target.dataset.uid}`;
+      const responseEl = document.getElementById(idResponse);
+      let html;
+      if (
+        hiddenCommands.includes(commandValue) ||
+        customCommands.includes(commandValue)
+      ) {
+        html = handleCustomCommands(commandValue);
+      } else {
+        html = getDomForCommand(commandValue);
+      }
+      if (responseEl) {
+        responseEl.innerHTML = html;
+        commandsHistory.push(commandValue);
+        addNewLine(e.target.id);
+      }
     }
+  } else if (e.keyCode === 9) {
+    // TAB
+    e.preventDefault();
+    if (commandValue === "") {
+      this.value = "help";
+    } else {
+      const matchingCommand = commandsList.find((c) =>
+        c.startsWith(commandValue)
+      );
+      if (matchingCommand) {
+        this.value = matchingCommand;
+      }
+    }
+    historyMode = false;
+  } else if (e.keyCode === 38 || e.keyCode === 40) {
+    // UP / DOWN
+    // History management
+    if (commandsHistory.length > 0) {
+      if (historyMode === false) {
+        historyIndex = commandsHistory.length - 1;
+      } else {
+        if (e.keyCode === 38 && historyIndex !== 0) {
+          // UP
+          historyIndex--;
+        } else if (
+          e.keyCode === 40 &&
+          historyIndex !== commandsHistory.length - 1
+        ) {
+          historyIndex++;
+        }
+      }
+      this.value = commandsHistory[historyIndex];
+    }
+    historyMode = true;
+  }
 }
 
 /**
@@ -226,36 +226,36 @@ function onCommandInput(e) {
  * @returns {string|void} Html to be displayed in the response of the command
  */
 function handleCustomCommands(command) {
-    switch (command) {
-        case "pif":
-            pif();
-            return "Let's go !";
-        case "light":
-            if (!document.body.classList.contains("dark-mode"))
-                return "You are already in light mode.";
-            setDarkMode(false);
-            return "Your are now in light mode.";
-        case "dark":
-            if (document.body.classList.contains("dark-mode"))
-                return "You are already in dark mode.";
-            setDarkMode(true);
-            return "You are now in dark mode.";
-        case "get cv":
-            getCV();
-            return "The CV will be downloaded.";
-        case "rm -rf /":
-            rmRf();
-            return "🎆";
-        case "clear":
-            terminalBody.innerHTML = `<div id="terminal"></div>`;
-            return;
-        case "boo":
-            setHalloweenTheme();
-            return "🎃";
-        case "hohoho":
-            showSanta();
-            return "🎅🎁";
-    }
+  switch (command) {
+    case "pif":
+      pif();
+      return "Let's go !";
+    case "light":
+      if (!document.body.classList.contains("dark-mode"))
+        return "You are already in light mode.";
+      setDarkMode(false);
+      return "Your are now in light mode.";
+    case "dark":
+      if (document.body.classList.contains("dark-mode"))
+        return "You are already in dark mode.";
+      setDarkMode(true);
+      return "You are now in dark mode.";
+    case "get cv":
+      getCV();
+      return "The CV will be downloaded.";
+    case "rm -rf /":
+      rmRf();
+      return "🎆";
+    case "clear":
+      terminalBody.innerHTML = `<div id="terminal"></div>`;
+      return;
+    case "boo":
+      setHalloweenTheme();
+      return "🎃";
+    case "hohoho":
+      showSanta();
+      return "🎅🎁";
+  }
 }
 
 // ------------------------------------------------------------------------------------
@@ -264,13 +264,13 @@ function handleCustomCommands(command) {
 
 // Added focus on the input even if you click on the body (to keep the cursor)
 document.body.addEventListener("click", function (e) {
-    if (e.target.tagName !== "INPUT") {
-        const activeInput = document.querySelector("input[data-active]");
-        activeInput.focus();
-    }
+  if (e.target.tagName !== "INPUT") {
+    const activeInput = document.querySelector("input[data-active]");
+    activeInput.focus();
+  }
 });
 
 document.querySelector(".fake-close").addEventListener("click", function (e) {
-    const terminalEl = document.querySelector(".terminal");
-    terminalEl.parentElement.removeChild(terminalEl);
+  const terminalEl = document.querySelector(".terminal");
+  terminalEl.parentElement.removeChild(terminalEl);
 });
