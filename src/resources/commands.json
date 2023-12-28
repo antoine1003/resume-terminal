@@ -1,117 +1,117 @@
 [
-    {
-      "command":"help",
-      "responseType":"list",
-      "value":[
-        "<code>about</code> : Displays information about me",
-        "<code>clear</code> : Clear terminal",
-        "<code>experiences</code> : Display the list of my professional experiences",
-        "<code>get cv</code> : Download CV",
-        "<code>help</code> : Display help",
-        "<code>hobbies</code> : Display the list of my hobbies",
-        "<code>projects</code> : Display the list of my personal projects",
-        "<code>dark/light/halloween</code> : Change theme",
-        "<em>You can use the TAB key to complete a command</em>",
-        "<em>You can find old commands with the up and down arrows.</em>"
-      ]
-    },
-    {
-      "command":"about",
-      "responseType":"code",
-      "value":[
-        "{",
-        "   \"name\" : \"Antoine DAUTRY\",",
-        "   \"poste\" : \"Fullstack developer\",",
-        "   \"experience\" : \"4 years\",",
-        "   \"city\" : \"Nantes, France\"",
-        "}"
-      ]
-    },
-    {
-      "command":"experiences",
-      "responseType":"table",
-      "headers":[
-        "Date",
-        "Client",
-        "Description",
-        "Tech"
+  {
+    "command": "help",
+    "responseType": "list",
+    "value": [
+      "<code>about</code> : Displays information about me",
+      "<code>clear</code> : Clear terminal",
+      "<code>experiences</code> : Display the list of my professional experiences",
+      "<code>get cv</code> : Download CV",
+      "<code>help</code> : Display help",
+      "<code>hobbies</code> : Display the list of my hobbies",
+      "<code>projects</code> : Display the list of my personal projects",
+      "<code>dark/light</code> : Change theme",
+      "<em>You can use the TAB key to complete a command</em>",
+      "<em>You can find old commands with the up and down arrows.</em>"
+    ]
+  },
+  {
+    "command": "about",
+    "responseType": "code",
+    "value": [
+      "{",
+      "   \"name\" : \"Antoine DAUTRY\",",
+      "   \"poste\" : \"Fullstack developer\",",
+      "   \"experience\" : \"4 years\",",
+      "   \"city\" : \"Nantes, France\"",
+      "}"
+    ]
+  },
+  {
+    "command": "experiences",
+    "responseType": "table",
+    "headers": [
+      "Date",
+      "Client",
+      "Description",
+      "Tech"
+    ],
+    "rows": [
+      [
+        "07/2023<br/>Now",
+        "Airbus Helicopters",
+        "Setting up a website to provide tools for several<br/>internal departments",
+        "Angular 16<br/>Symfony 6<br/>EventSource"
       ],
-      "rows":[
-        [
-          "07/2023<br/>Now",
-          "Airbus Helicopters",
-          "Setting up a website to provide tools for several<br/>internal departments",
-          "Angular 16<br/>Symfony 6<br/>EventSource"
-        ],
-        [
-          "11/2021<br/>06/2023",
-          "Elephant Tech<br/><em>Ministry of Justice</em>",
-          "Establishment of a platform linking the various actors<br/>in the reintegration of former prisoners.",
-          "Angular 11<br/>Spring Boot<br/>Axelor"
-        ],
-        [
-          "03/2021<br/>11/2021",
-          "SII<br/><em>La Poste</em>",
-          "La Poste's internal tool for allocating technicians to different<br/>missions.",
-          "Angular 11<br/>Spring Boot<br/>Spring Batch"
-        ],
-        [
-          "02/2020<br/>03/2021",
-          "SII<br/><em>I.T. Dept</em>",
-          "Maintenance of an internal timesheet tool.<br/>Development of plugins for our version of ProjeQtor.<br/>Conversion of an old webapp to Angular 9.",
-          "Symfony<br/>Angular 9"
-        ],
-        [
-          "11/2019<br/>02/2020",
-          "SII<br/><em>Poste IMMO</em>",
-          "Work on a process management tool to manage the evolution of a work request.",
-          "Symfony 3.4<br/>AngularJS<br/>Processmaker"
-        ]
-      ]
-    },
-    {
-      "command":"hobbies",
-      "responseType":"list",
-      "value":[
-        "Music: Piano, Guitar",
-        "Programmation: JS, Angular, PHP",
-        "Other: Cinema, Aeronautics, Photography"
-      ]
-    },
-    {
-      "command":"projects",
-      "responseType":"table",
-      "headers":[
-        "Name",
-        "Description",
-        "Tech",
-        "Links"
+      [
+        "11/2021<br/>06/2023",
+        "Elephant Tech<br/><em>Ministry of Justice</em>",
+        "Establishment of a platform linking the various actors<br/>in the reintegration of former prisoners.",
+        "Angular 11<br/>Spring Boot<br/>Axelor"
       ],
-      "rows":[
-        [
-          "Form to Resume - Web<br/>(2023)",
-          "I set up a private web page where I can manually change data from my resume via a form. After validating changes, this will generate a PDF file that will be available on the public link.",
-          "Angular 16, PHP 8.2",
-          "<a href=\"https://my-resume.adautry.fr/show-latest\" target=\"blank\">Links</a>"
-        ],
-        [
-          "Chartsfinder - Web<br/>(2021)",
-          "Web application to quickly find aeronautical maps. A C# version already existed but I preferred to update it with a web version which is easier to use.",
-          "Angular 11, PHP 7.4",
-          "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Links</a>"
-        ],
-        [
-          "Personal website<br/>(2021)",
-          "Personal website allowing me to show my projects and deploy a new version of the software.<br/>There is even a hidden game...",
-          "Symfony 5",
-          "<a href=\"https://adautry.fr\" target=\"blank\">Link</a>"
-        ],
-        [
-          "Chartsfinder - Software<br/>(2020)",
-          "Software to quickly retrieve aeronautical charts.",
-          "C# WPF",
-          "<a href=\"https://adautry.fr/software/chartsfinder\" target=\"blank\">Link</a>"
-        ]
+      [
+        "03/2021<br/>11/2021",
+        "SII<br/><em>La Poste</em>",
+        "La Poste's internal tool for allocating technicians to different<br/>missions.",
+        "Angular 11<br/>Spring Boot<br/>Spring Batch"
+      ],
+      [
+        "02/2020<br/>03/2021",
+        "SII<br/><em>I.T. Dept</em>",
+        "Maintenance of an internal timesheet tool.<br/>Development of plugins for our version of ProjeQtor.<br/>Conversion of an old webapp to Angular 9.",
+        "Symfony<br/>Angular 9"
+      ],
+      [
+        "11/2019<br/>02/2020",
+        "SII<br/><em>Poste IMMO</em>",
+        "Work on a process management tool to manage the evolution of a work request.",
+        "Symfony 3.4<br/>AngularJS<br/>Processmaker"
       ]
-    }
+    ]
+  },
+  {
+    "command": "hobbies",
+    "responseType": "list",
+    "value": [
+      "Music: Piano, Guitar",
+      "Programmation: JS, Angular, PHP",
+      "Other: Cinema, Aeronautics, Photography"
+    ]
+  },
+  {
+    "command": "projects",
+    "responseType": "table",
+    "headers": [
+      "Name",
+      "Description",
+      "Tech",
+      "Links"
+    ],
+    "rows": [
+      [
+        "Form to Resume - Web<br/>(2023)",
+        "I set up a private web page where I can manually change data from my resume via a form. After validating changes, this will generate a PDF file that will be available on the public link.",
+        "Angular 16, PHP 8.2",
+        "<a href=\"https://my-resume.adautry.fr/show-latest\" target=\"blank\">Links</a>"
+      ],
+      [
+        "Chartsfinder - Web<br/>(2021)",
+        "Web application to quickly find aeronautical maps. A C# version already existed but I preferred to update it with a web version which is easier to use.",
+        "Angular 11, PHP 7.4",
+        "<a href=\"https://chartsfinder.adautry.fr\" target=\"blank\">Links</a>"
+      ],
+      [
+        "Personal website<br/>(2021)",
+        "Personal website allowing me to show my projects and deploy a new version of the software.<br/>There is even a hidden game...",
+        "Symfony 5",
+        "<a href=\"https://adautry.fr\" target=\"blank\">Link</a>"
+      ],
+      [
+        "Chartsfinder - Software<br/>(2020)",
+        "Software to quickly retrieve aeronautical charts.",
+        "C# WPF",
+        "<a href=\"https://adautry.fr/software/chartsfinder\" target=\"blank\">Link</a>"
+      ]
+    ]
+  }
 ]

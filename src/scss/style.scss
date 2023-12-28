@@ -15,21 +15,25 @@ $border-radius: 5px;
 }
 
 body {
+  overflow: hidden;
+
   &.dark-mode {
-      --text-accent-color: #ffca85;
-      --link-color: burlywood;
-      --bg-1: #211F20;
-      --bg-2: #292D34;
-      --bg-3: #213030;
-      --bg-1-social: #414141;
-      --bg-2-social: #485461;
-      --username-color: #858585;
-      --terminal-bg: rgb(0 0 0 / 90%);
-      --terminal-header-bg: #585252;
+    --text-accent-color: #ffca85;
+    --link-color: burlywood;
+    --bg-1: #211F20;
+    --bg-2: #292D34;
+    --bg-3: #213030;
+    --bg-1-social: #414141;
+    --bg-2-social: #485461;
+    --username-color: #858585;
+    --terminal-bg: rgb(0 0 0 / 90%);
+    --terminal-header-bg: #585252;
+
     &.firework {
       --terminal-bg: rgb(0 0 0 / 15%);
     }
   }
+
   box-sizing: border-box;
   margin: 0;
   display: flex;
@@ -241,6 +245,7 @@ ul {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+
     &:hover {
       background: var(--bg-2-social); /* fallback for old browsers */
       background: -webkit-linear-gradient(
@@ -261,6 +266,7 @@ ul {
       align-items: center;
       text-decoration: none;
     }
+
     i {
       color: white;
       font-size: 2em;
@@ -305,6 +311,7 @@ ul {
     height: unset;
     resize: none;
     z-index: 2;
+
     .terminal__body {
       max-width: unset;
       width: 90vw;
@@ -338,3 +345,4 @@ ul {
 
 @import "snowflakes";
 @import "halloween";
+@import "santa";
