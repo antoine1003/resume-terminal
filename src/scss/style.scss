@@ -1,3 +1,7 @@
+@use "snowflakes";
+@use "halloween";
+@use "santa";
+
 $border-radius: 5px;
 
 :root {
@@ -343,6 +347,3 @@ ul {
   }
 }
 
-@import "snowflakes";
-@import "halloween";
-@import "santa";
